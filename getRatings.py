@@ -2,33 +2,55 @@ import sys
 import urllib2
 import re
 
-firstName = "randy"
 
-lastName = "fortier"
+def getDataURL(fullName):
 
+	firstName = fullName[0]
 
+	lastName = fullName[1]
 
-#fullName = (sys.argv[1]).split()
+	searchURL = "http://www.ratemyprofessors.com/search.jsp?queryoption=HEADER&queryBy=teacherName&schoolName=University+of+Ontario+Institute+of+Technology&schoolID=4714&query=" + firstName + "+" + lastName
 
-#firstName = fullName[0]
-
-#lastName = fullName[1]
-
-searchURL = "http://www.ratemyprofessors.com/search.jsp?queryoption=HEADER&queryBy=teacherName&schoolName=University+of+Ontario+Institute+of+Technology&schoolID=4714&query=" + firstName + "+" + lastName
-
-searchLinkRegex = r'<li class="listing PROFESSOR">\s*<a href="\/ShowRatings.jsp\?tid=([0-9]{1,20})">\s*<span class="listing-cat">\s*<span class="icon icon-professor"><\/span>\s*PROFESSOR\s*<\/span>\s*<span class="listing-name">\s*<span class="main">Fortier, Randy<\/span>\s*<span class="sub">University of Ontario Institute of Technology, ([A-Za-z ]{1,40})<\/span>\s*<\/span>\s*<\/a><\/li>'
+	searchLinkRegex = r'<li class="listing PROFESSOR">\s*<a href="\/ShowRatings.jsp\?tid=([0-9]{1,20})">\s*<span class="listing-cat">\s*<span class="icon icon-professor"><\/span>\s*PROFESSOR\s*<\/span>\s*<span class="listing-name">\s*<span class="main">Fortier, Randy<\/span>\s*<span class="sub">University of Ontario Institute of Technology, ([A-Za-z ]{1,40})<\/span>\s*<\/span>\s*<\/a><\/li>'
 
 
-searchResults = urllib2.urlopen(searchURL).read()
+	searchResults = urllib2.urlopen(searchURL).read()
 
-searchMatch = re.search(searchLinkRegex, searchResults);
+	searchMatch = re.search(searchLinkRegex, searchResults);
 
-informationNumber = searchMatch.group(1)
+	informationNumber = searchMatch.group(1)
 
-profDepartment = searchMatch.group(2)
+	profDepartment = searchMatch.group(2)
 
-informationPageURL = "http://www.ratemyprofessors.com/ShowRatings.jsp?tid=" + informationNumber
+	informationPageURL = "http://www.ratemyprofessors.com/ShowRatings.jsp?tid=" + informationNumber
 
-informationResults = urllib2.urlopen(informationPageURL).read()
+	return informationPageURL
 
-print informationResults
+def getDataPage(dataURL):
+
+	dataPage = urllib2.urlopen(dataURL).read()
+
+	return dataPage
+
+def extractData(dataPage):
+
+	noDataRegex = r'<div class="headline">Be the first to rate Professor ([A-Za-z ]+).?<\/div>'
+
+	overallQualityRegex = r'<div class="breakdown-header">\s*Overall Quality\s*<div class="grade">([0-9].[0-9])</div>\s*</div>'
+
+	averageGradeRegex = r'<div class="breakdown-header">\s*Average Grade\s*<div class="grade">([A-Z]\-?\+?)</div>\s*</div>'
+
+	hotnessRegex = r'<div class="breakdown-header">\s*Hotness\s*<div class="grade">\s*<figure>\s*<img src="\/assets\/chilis\/([a-z]+)\-chili.png" width="[0-9]{1,4}"\/>\s*<\/figure>\s*<\/div>\s*<\/div>'
+
+	helpfulnessRegex = r'<div class="rating-slider">\s*<div class="label">Helpfulness<\/div>\s*<div class="rating">([0-9].?[0-9]?)<\/div>\s*<div class="slider">'
+
+	clarityRegex = r'<div class="rating-slider">\s*<div class="label">Clarity<\/div>\s*<div class="rating">([0-9].?[0-9]?)<\/div>\s*<div class="slider">'
+
+	easinessRegex = r'<div class="rating-slider">\s*<div class="label">Easiness<\/div>\s*<div class="rating">([0-9].?[0-9]?)<\/div>\s*<div class="slider">'
+
+
+profURL = getDataURL((sys.argv[1]).split())
+
+profDataPage = getDataPage(profURL)
+
+

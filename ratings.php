@@ -1,15 +1,15 @@
 <?php
 
-//$firstName = "randy";
-
-//$lastName = "fortier";
-
 $fullName = "randy fortier";
 
 $pythonStatement = "python getRatings.py \"" . $fullName . "\"";
 
-$result = exec($pythonStatement);
+$dataFeed = exec($pythonStatement);
 
-echo $result;
+$dataList = preg_split('[\s]', $dataFeed);
+
+$dataJSON = json_encode($dataList);
+
+echo $dataJSON;
 
 ?>

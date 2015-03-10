@@ -31,8 +31,13 @@ for item in URL_LIST:
 
 f = open("profList.txt", "w")
 
-for name in profList:
+for i in range(0, len(profList)):
 
-	f.write(name + "\n")
+	if (i == (len(profList) - 1)):
 
+		f.write(profList[i])
+
+	else:
+
+		f.write(profList[i] + "\n")
 

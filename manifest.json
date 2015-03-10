@@ -1,0 +1,14 @@
+{
+	"manifest_version": 2,
+
+	"name": "transparentUOIT",
+	"description": "Injects information on UOIT professors into any UOIT domain, including 'ratemyprofessor' ratings, salary information from the sunshine list, and more.",
+	"version": "1.0",
+
+	"content_scripts": [
+		"matches: ["http://www.science.uoit.ca/*"]	
+
+	],
+
+	
+}

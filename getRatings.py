@@ -43,19 +43,23 @@ def extractData(dataPage):
 
 	noDataRegex = r'<div class="headline">Be the first to rate Professor ([A-Za-z ]+).?<\/div>'
 
-	##Data list: quality/avgGrade/hotness/helpfullness/clarity/easiness
+	##Data list: quality/avgGrade/hotness/helpfullness/clarity/easiness/ratingsCount
 
-	overallQualityRegex = r'<div class="breakdown-header">\s*Overall Quality\s*<div class="grade">([0-9].[0-9])</div>\s*</div>'
+	dataRegexList = []
 
-	averageGradeRegex = r'<div class="breakdown-header">\s*Average Grade\s*<div class="grade">([A-Z]\-?\+?)</div>\s*</div>'
+	dataRegexList.append(r'<div class="breakdown-header">\s*Overall Quality\s*<div class="grade">([0-9].[0-9])</div>\s*</div>')
 
-	hotnessRegex = r'<div class="breakdown-header">\s*Hotness\s*<div class="grade">\s*<figure>\s*<img src="\/assets\/chilis\/([a-z]+)\-chili.png" width="[0-9]{1,4}"\/>\s*<\/figure>\s*<\/div>\s*<\/div>'
+	dataRegexList.append(r'<div class="breakdown-header">\s*Average Grade\s*<div class="grade">([A-Z]\-?\+?)</div>\s*</div>')
 
-	helpfulnessRegex = r'<div class="rating-slider">\s*<div class="label">Helpfulness<\/div>\s*<div class="rating">([0-9].?[0-9]?)<\/div>\s*<div class="slider">'
+	dataRegexList.append(r'<div class="breakdown-header">\s*Hotness\s*<div class="grade">\s*<figure>\s*<img src="\/assets\/chilis\/([a-z]+)\-chili.png" width="[0-9]{1,4}"\/>\s*<\/figure>\s*<\/div>\s*<\/div>')
 
-	clarityRegex = r'<div class="rating-slider">\s*<div class="label">Clarity<\/div>\s*<div class="rating">([0-9].?[0-9]?)<\/div>\s*<div class="slider">'
+	dataRegexList.append(r'<div class="rating-slider">\s*<div class="label">Helpfulness<\/div>\s*<div class="rating">([0-9].?[0-9]?)<\/div>\s*<div class="slider">')
 
-	easinessRegex = r'<div class="rating-slider">\s*<div class="label">Easiness<\/div>\s*<div class="rating">([0-9].?[0-9]?)<\/div>\s*<div class="slider">'
+	dataRegexList.append(r'<div class="rating-slider">\s*<div class="label">Clarity<\/div>\s*<div class="rating">([0-9].?[0-9]?)<\/div>\s*<div class="slider">')
+
+	dataRegexList.append(r'<div class="rating-slider">\s*<div class="label">Easiness<\/div>\s*<div class="rating">([0-9].?[0-9]?)<\/div>\s*<div class="slider">')
+
+	dataRegexList.append(r'<div class="table-toggle rating-count active" data-table="rating-filter">\s*([0-9]{1,4}) Student Ratings\s*<\/div>')
 
 	if re.search(noDataRegex, dataPage) is not None:
 
@@ -65,20 +69,22 @@ def extractData(dataPage):
 
 	else: 
 
-		overallQualityResult = re.search(overallQualityRegex, dataPage)
+		dataResultList = []
 
-		averageGradeResult = re.search(averageGradeRegex, dataPage)
+		for reg in dataRegexList:
 
-		hotnessResult = re.search(hotnessRegex, dataPage)
+			dataResultList.append(re.search(reg, dataPage))
 
-		helpfulnessResult = re.search(helpfulnessRegex , dataPage)
+		for result in dataResultList:
 
-		clarityResult = re.search(clarityRegex , dataPage)
+			if result is not None:
 
-		easinessResult = re.search(easinessRegex , dataPage)
+				print result.group(1)
 
+			else:
+
+				print "null"
 		
-
 
 		
 
@@ -87,5 +93,4 @@ profURL = getDataURL((sys.argv[1]).split())
 profDataPage = getDataPage(profURL)
 
 extractData(profDataPage)
-
 

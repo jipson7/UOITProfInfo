@@ -5,12 +5,17 @@ import re
 
 def getDataURL(fullName):
 
-	firstName = fullName[0]
+	searchURL = "http://www.ratemyprofessors.com/search.jsp?queryoption=HEADER&queryBy=teacherName&schoolName=University+of+Ontario+Institute+of+Technology&schoolID=4714&query="
 
-	lastName = fullName[1]
+	for i in range(0,(len(fullName) - 1)):
+			
+		searchURL += fullName[i]
 
-	searchURL = "http://www.ratemyprofessors.com/search.jsp?queryoption=HEADER&queryBy=teacherName&schoolName=University+of+Ontario+Institute+of+Technology&schoolID=4714&query=" + firstName + "+" + lastName
+		if (i != (len(fullName) - 1)):
 
+			searchURL += "+"
+
+			
 	searchLinkRegex = r'<li class="listing PROFESSOR">\s*<a href="\/ShowRatings.jsp\?tid=([0-9]{1,20})">\s*<span class="listing-cat">\s*<span class="icon icon-professor"><\/span>\s*PROFESSOR\s*<\/span>\s*<span class="listing-name">\s*<span class="main">([A-Za-z.,\-\)\( ]+)?<\/span>\s*<span class="sub">University of Ontario Institute of Technology, ([A-Za-z,.& ]{1,100})<\/span>\s*<\/span>\s*<\/a><\/li>'
 
 	noResultsRegex = r'<div class="result-count">Your search didn\'t return any results.<\/div>'
@@ -86,7 +91,7 @@ def extractData(dataPage):
 				print ("null"),
 		
 
-		
+######################################################
 
 profURL = getDataURL((sys.argv[1]).split())
 

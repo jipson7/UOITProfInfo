@@ -29,15 +29,17 @@ for item in URL_LIST:
 
 	parseNames(currentPage)
 
-f = open("profList.txt", "w")
+f = open("PROF_MASTERLIST.js", "w")
+
+f.write("var PROF_MASTERLIST = [")
 
 for i in range(0, len(profList)):
 
 	if (i == (len(profList) - 1)):
-
-		f.write(profList[i])
-
+	
+		f.write("\"" + profList[i] + "\"];")
+	
 	else:
 
-		f.write(profList[i] + "\n")
+		f.write("\"" + profList[i] + "\", ")
 

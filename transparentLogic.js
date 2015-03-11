@@ -24,23 +24,6 @@ $( document ).ready(function(){
 
 		}, 1000);
 
-		// var frameContent = parent.frames[1];
-
-		// // console.log(frameContent.location.href)
-
-		// $(frameContent).attr("id", "content");
-
-
-		// $("content").ready(function() {
-
-		// 	startHREFUrlTimer();
-
-		// 	PORTAL_FRAME_URL = checkFrameURL();
-
-		// });
-
-
-
 	}
 	
 
@@ -97,7 +80,16 @@ function checkFrameURL() {
 
 function portalReload() {
 
-	console.log("Please work");
+	console.log("Thank you");
+
+
+	// var frameTree = $("*:contains(" + profName + ")", parents.frames[1].document)
+
+	// $(frameTree).find("*:contains(" + profName + ")").filter(function() {
+
+	// 	return $(this).children().length === 0;
+
+	// });
 
 }
 

@@ -1,4 +1,4 @@
-//This function is suppose to make jQuery contains selector case incensitive
+//This function is suppose to make jQuery's :contain selector case incensitive
 //// found here https://css-tricks.com/snippets/jquery/make-jquery-contains-case-insensitive/
 $.expr[":"].contains = $.expr.createPseudo(function(arg) {
     return function( elem ) {
@@ -8,6 +8,8 @@ $.expr[":"].contains = $.expr.createPseudo(function(arg) {
 
 
 $( document ).ready(function(){
+
+
 	
 	var nameTags;
 
@@ -15,7 +17,11 @@ $( document ).ready(function(){
 
 		nameTags = getAllMatchingTags(PROF_MASTERLIST[i]);
 
-		nameTags.append("<button>" + PROF_MASTERLIST[i] + "</button>");
+		if ((nameTags != null)&&(nameTags.length != 0)) {
+
+			nameTags.append("<button>" + PROF_MASTERLIST[i] + "</button>");
+
+		}
 
 	}
 		
@@ -38,6 +44,18 @@ function getAllMatchingTags(profName) {
         	return $(this).children().children().length === 0;
 
     	});
+
+    	if (nameTree.length === 0) {
+
+    		containerTree = $('frame[name="content"]', top.document)[0].contentDocument;
+
+    		nameTree = $(containerTree).find("*:contains(" + profName + ")").filter(function() {
+
+    			return $(this).children().length === 0;
+
+    		});
+
+    	}
 
 	}
 

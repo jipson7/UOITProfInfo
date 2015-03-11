@@ -1,4 +1,3 @@
-
 var PORTAL_TIMER;
 var PORTAL_FRAME_URL;
 
@@ -12,7 +11,7 @@ $( document ).ready(function(){
 
 	} else if (currentPath === 1) {
 
-		//do something for main urls
+		injectButtons(1);
 
 	} else if (currentPath == 2) {
 
@@ -22,7 +21,7 @@ $( document ).ready(function(){
 
 			PORTAL_FRAME_URL = checkFrameURL();
 
-		}, 1000);
+		}, 100);
 
 	}
 	
@@ -78,40 +77,27 @@ function checkFrameURL() {
 //TD TAG EXAMPLE
 // var tags = $("td", parents.frames[1].document)
 
-function portalReload() {
+function getMatchingTagsPORTAL(profName) {
 
 	console.log("Thank you");
 
+	var nameTree;
 
-	// var frameTree = $("*:contains(" + profName + ")", parents.frames[1].document)
+	var frameRoot = parent.frames[1].document;
 
-	// $(frameTree).find("*:contains(" + profName + ")").filter(function() {
+	var frameTree = $("*:contains(" + profName + ")", frameRoot);
 
-	// 	return $(this).children().length === 0;
+	nameTree = $(frameTree).filter(function() {
 
-	// });
+		return $(this).children().length === 0;
 
-}
+	});
 
-function injectButtons(){
-
-	var nameTags;
-
-	for(var i = 0; i < PROF_MASTERLIST.length; i++){
-
-		nameTags = getAllMatchingTags(PROF_MASTERLIST[i]);
-
-		if ((nameTags != null)&&(nameTags.length != 0)) {
-
-			nameTags.append("<button>" + PROF_MASTERLIST[i] + "</button>");
-
-		}
-
-	 }
+	return nameTree;
 
 }
 
-function getAllMatchingTags(profName) {
+function getMatchingTagsMAIN(profName) {
 
 	//Should change the if statements to check the URL before deciding HOW to inject, that will save time
 
@@ -131,24 +117,38 @@ function getAllMatchingTags(profName) {
 
     	});
 
-    	if (nameTree.length === 0) {
-
-    		//this works... but NOT WITH JQUERY
-    		var frameTree = parent.frames[1].document;
-
-    		$(frameTree).find("*:contains(" + profName + ")").filter(function() {
-
-    			return $(this).children().length === 0;
-
-    		});
-
-    	}
-
 	}
 
 	return nameTree;
 
 }
+
+function injectButtons(currentPath){
+
+	var nameTags;
+
+	for(var i = 0; i < PROF_MASTERLIST.length; i++){
+
+		if (currentPath == 1) {
+
+			nameTags = getMatchingTagsMAIN(PROF_MASTERLIST[i]);
+
+		} else if (currentPath == 2) {
+
+			nameTags = getMatchingTagsPORTAL(PROF_MASTERLIST[i]);
+
+		}	
+
+		if ((nameTags != null)&&(nameTags.length != 0)) {
+
+			nameTags.append("<button>" + PROF_MASTERLIST[i] + "</button>");
+
+		}
+
+	 }
+
+}
+
 
 function startHREFUrlTimer() {
 
@@ -169,7 +169,7 @@ function HREFUrlTimer() {
 
 	} else if (checkFrameURL() != PORTAL_FRAME_URL) {
 
-		portalReload();
+		injectButtons(2);
 		PORTAL_FRAME_URL = checkFrameURL();
 
 	}

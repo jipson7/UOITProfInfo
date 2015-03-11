@@ -29,6 +29,8 @@ $( document ).ready(function(){
 
 function getAllMatchingTags(profName) {
 
+	//Should change the if statements to check the URL before deciding HOW to inject, that will save time
+
 	var containerTree = $("*:contains(" + profName + ")");
 
 	var nameTree = containerTree.filter(function(){ 
@@ -47,9 +49,7 @@ function getAllMatchingTags(profName) {
 
     	if (nameTree.length === 0) {
 
-    		containerTree = $('frame[name="content"]', top.document)[0].contentDocument;
-
-    		nameTree = $(containerTree).find("*:contains(" + profName + ")").filter(function() {
+    		nameTree = $("*:contains(" + profName + ")",top.frames["content"].document).filter(function() {
 
     			return $(this).children().length === 0;
 

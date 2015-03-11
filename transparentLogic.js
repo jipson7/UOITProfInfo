@@ -13,18 +13,23 @@ $( document ).ready(function(){
 
 	for(var i = 0; i < PROF_MASTERLIST.length; i++){
 
-		nameTags = getAllMatchingTags(PROF_MASTERLIST[i]);
 
-		if ((nameTags != null)&&(nameTags.length !== 0)) {
+		$(document).find().filter(function() {
 
-			nameTags.each(function() {
-			
-				$(this).append("<button>" + PROF_MASTERLIST[i] + "</button>");
-				return false;	
-			
-			});	
+			return this.nodeType === 3;
 
-		}
+		}).filter(function() {
+
+			var currentText = $(this).text()
+
+			var reg = new RegExp(PROF_MASTERLIST[i], 'i');
+
+			return reg.test(currentText);
+
+		}).each(function() {
+
+			$(this).append("<button>" + PROF_MASTERLIST[i] + "</button>")
+		})
 
 	}
 		
@@ -32,21 +37,28 @@ $( document ).ready(function(){
 
 function getAllMatchingTags(profName) {
 
-	var containerTree = $(":contains('" + profName + "')");
 
-	for (var i = 0; i < 3; i++) {
 
-		var baseTree = getLevelOfChildren(containerTree, i);
+	var containerTree = $("*:contains(" + profName + ")").filter(function(){ 
+        		
+        return $(this).children().length === 0;
 
-		if (baseTree.length !== 0) {
+    });
 
-			return baseTree;
+    if (containerTree.length === 0) {
 
-		}
+    	var containerTree = $("*:contains(" + profName + ")").filter(function(){ 
+        		
+        	return $(this).children().length === 1;
 
-	}
+    	});
 
-	
+    } 
+
+    return containerTree;
+
+
+
 
 }
 

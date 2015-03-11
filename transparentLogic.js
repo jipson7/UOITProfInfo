@@ -8,20 +8,19 @@ $.expr[":"].contains = $.expr.createPseudo(function(arg) {
 
 
 $( document ).ready(function(){
-
-	var childList = $(":not(:has(*))");
 	
 	var nameTags;
 
 	for(var i = 0; i < PROF_MASTERLIST.length; i++){
 
-		nameTags = childList.filter(":contains('" + PROF_MASTERLIST[i] + "')");
+		nameTags = getAllMatchingTags(PROF_MASTERLIST[i]);
 
-		if (nameTags.length !== 0) {
+		if ((nameTags != null)&&(nameTags.length !== 0)) {
 
 			nameTags.each(function() {
 			
-				$(this).append("<button>TEST</button>");	
+				$(this).append("<button>" + PROF_MASTERLIST[i] + "</button>");
+				return false;	
 			
 			});	
 
@@ -30,6 +29,36 @@ $( document ).ready(function(){
 	}
 		
 });
+
+function getAllMatchingTags(profName) {
+
+	var containerTree = $(":contains('" + profName + "')");
+
+	for (var i = 0; i < 3; i++) {
+
+		var baseTree = getLevelOfChildren(containerTree, i);
+
+		if (baseTree.length !== 0) {
+
+			return baseTree;
+
+		}
+
+	}
+
+	
+
+}
+
+function getLevelOfChildren(containerTree, level) {
+
+	return containerTree.filter(function() {
+
+		return $(this).children().length == level;
+
+	});
+
+}
 
 function testPHP() {
 
@@ -40,3 +69,13 @@ function testPHP() {
 	});
 
 }
+
+jQuery.fn.justtext = function() {
+   
+    return $(this)  .clone()
+            .children()
+            .remove()
+            .end()
+            .text();
+ 
+};

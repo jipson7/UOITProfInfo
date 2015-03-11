@@ -14,17 +14,11 @@ $( document ).ready(function(){
 	for(var i = 0; i < PROF_MASTERLIST.length; i++){
 
 
-		$(document).find().filter(function() {
-
-			return this.nodeType === 3;
-
-		}).filter(function() {
-
-			var currentText = $(this).text()
+		$("*:contains(" + PROF_MASTERLIST[i] + ")").filter(function() {
 
 			var reg = new RegExp(PROF_MASTERLIST[i], 'i');
 
-			return reg.test(currentText);
+			return reg.test($(this).text());
 
 		}).each(function() {
 

@@ -1,24 +1,100 @@
-//This function is suppose to make jQuery's :contain selector case incensitive
-//// found here https://css-tricks.com/snippets/jquery/make-jquery-contains-case-insensitive/
-$.expr[":"].contains = $.expr.createPseudo(function(arg) {
-    return function( elem ) {
-        return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
-    };
-});
 
+var PORTAL_TIMER;
+var PORTAL_FRAME_URL;
 
 $( document ).ready(function(){
 
-	$( window ).load(function() {
+	var currentPath = checkCurrentURL();
 
-		console.log("TETSTETSTTES");
+	if (currentPath === 0) {
 
-	});
+		//do something for unknown URL
 
-	var frameTree = parent.frames[1].document.getElementsByTagName("H2").innerText
+	} else if (currentPath === 1) {
 
-	console.log(frameTree);
+		//do something for main urls
+
+	} else if (currentPath == 2) {
+
+		var frameContent = parent.frames[1];
+
+		// console.log(frameContent.location.href)
+
+		$(frameContent).attr("id", "content");
+
+
+		$("content").ready(function() {
+
+			startHREFUrlTimer();
+
+			PORTAL_FRAME_URL = checkFrameURL();
+
+		});
+
+
+
+	}
 	
+
+		
+});
+
+function checkCurrentURL() {
+
+	//RETURN VALUE OF 0 FOR UNKNOWN
+
+	//RETURN VALUE OF 1 REPRESENTS THESE
+	var URLS_MAIN = ["www.science.uoit.ca", "www.businessandit.uoit.ca", "education.uoit.ca", "nuclear.uoit.ca", "www.engineering.uoit.ca", "www.healthsciences.uoit.ca", "www.socialscienceandhumanities.uoit.ca", "gradstudies.uoit.ca"];
+
+	//RETURN VALUE OF 2 REPRESENTS THESE
+	var URLS_PORTAL = ["portal.mycampus.ca"];
+
+	var currentURL = document.URL;
+
+	for (var i = 0; i < URLS_MAIN.length; i++) {
+
+		if (currentURL.indexOf(URLS_MAIN[i]) > -1){
+
+			return 1;
+
+		}
+
+	}
+
+	for (var i = 0; i < URLS_PORTAL.length; i++) {
+
+		if (currentURL.indexOf(URLS_PORTAL[i]) > -1){
+
+			return 2;
+
+		}
+
+	}
+
+}
+
+function checkFrameURL() {
+
+	return parent.frames[1].location.href;
+
+}
+
+//KEEEEEEP THIS
+// var frameContent = parent.frames[1];
+
+// console.log(frameContent.location.href)
+
+//TD TAG EXAMPLE
+// var tags = $("td", parents.frames[1].document)
+
+function portalReload() {
+
+	console.log("Please work");
+
+}
+
+function injectButtons(){
+
 	var nameTags;
 
 	for(var i = 0; i < PROF_MASTERLIST.length; i++){
@@ -32,8 +108,8 @@ $( document ).ready(function(){
 		}
 
 	 }
-		
-});
+
+}
 
 function getAllMatchingTags(profName) {
 
@@ -57,6 +133,7 @@ function getAllMatchingTags(profName) {
 
     	if (nameTree.length === 0) {
 
+    		//this works... but NOT WITH JQUERY
     		var frameTree = parent.frames[1].document;
 
     		$(frameTree).find("*:contains(" + profName + ")").filter(function() {
@@ -73,12 +150,37 @@ function getAllMatchingTags(profName) {
 
 }
 
-$(parent.frames[1]).load(function() {
+function startHREFUrlTimer() {
 
-	console.log("Helllloooo");
+	PORTAL_TIMER = setTimeout(function(){ 
 
-});
+		HREFUrlTimer();
 
+
+ 	}, 100);
+
+}
+
+function HREFUrlTimer() {
+
+	if (checkCurrentURL != 2) {
+
+		return;
+
+	} else if (checkFrameURL() != PORTAL_FRAME_URL) {
+
+		portalReload();
+		PORTAL_FRAME_URL = checkFrameURL();
+
+	}
+
+	PORTAL_TIMER = setTimeout(function() {
+
+		HREFUrlTimer();
+
+	}, 100);
+
+}
 
 function testPHP() {
 
@@ -89,4 +191,14 @@ function testPHP() {
 	});
 
 }
+
+
+//This function is suppose to make jQuery's :contain selector case incensitive
+//// found here https://css-tricks.com/snippets/jquery/make-jquery-contains-case-insensitive/
+$.expr[":"].contains = $.expr.createPseudo(function(arg) {
+    return function( elem ) {
+        return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+    };
+});
+
 

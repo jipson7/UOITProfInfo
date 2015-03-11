@@ -16,20 +16,28 @@ $( document ).ready(function(){
 
 	} else if (currentPath == 2) {
 
-		var frameContent = parent.frames[1];
-
-		// console.log(frameContent.location.href)
-
-		$(frameContent).attr("id", "content");
-
-
-		$("content").ready(function() {
+		setTimeout(function() {
 
 			startHREFUrlTimer();
 
 			PORTAL_FRAME_URL = checkFrameURL();
 
-		});
+		}, 1000);
+
+		// var frameContent = parent.frames[1];
+
+		// // console.log(frameContent.location.href)
+
+		// $(frameContent).attr("id", "content");
+
+
+		// $("content").ready(function() {
+
+		// 	startHREFUrlTimer();
+
+		// 	PORTAL_FRAME_URL = checkFrameURL();
+
+		// });
 
 
 
@@ -47,7 +55,7 @@ function checkCurrentURL() {
 	var URLS_MAIN = ["www.science.uoit.ca", "www.businessandit.uoit.ca", "education.uoit.ca", "nuclear.uoit.ca", "www.engineering.uoit.ca", "www.healthsciences.uoit.ca", "www.socialscienceandhumanities.uoit.ca", "gradstudies.uoit.ca"];
 
 	//RETURN VALUE OF 2 REPRESENTS THESE
-	var URLS_PORTAL = ["portal.mycampus.ca"];
+	var URLS_PORTAL = ["portal.mycampus.ca/cp"];
 
 	var currentURL = document.URL;
 
@@ -75,7 +83,7 @@ function checkCurrentURL() {
 
 function checkFrameURL() {
 
-	return parent.frames[1].location.href;
+	return parent.frames[1].document.URL;
 
 }
 
@@ -163,7 +171,7 @@ function startHREFUrlTimer() {
 
 function HREFUrlTimer() {
 
-	if (checkCurrentURL != 2) {
+	if (checkCurrentURL() != 2) {
 
 		return;
 

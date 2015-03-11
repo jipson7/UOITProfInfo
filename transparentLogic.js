@@ -23,8 +23,6 @@ $( document ).ready(function(){
 
 function getAllMatchingTags(profName) {
 
-	
-
 	var containerTree = $("*:contains(" + profName + ")");
 
 	var nameTree = containerTree.filter(function(){ 
@@ -45,20 +43,8 @@ function getAllMatchingTags(profName) {
 
 	return nameTree;
 
-
-
-
 }
 
-function getLevelOfChildren(containerTree, level) {
-
-	return containerTree.filter(function() {
-
-		return $(this).children().length == level;
-
-	});
-
-}
 
 function testPHP() {
 
@@ -70,12 +56,3 @@ function testPHP() {
 
 }
 
-jQuery.fn.justtext = function() {
-   
-    return $(this)  .clone()
-            .children()
-            .remove()
-            .end()
-            .text();
- 
-};

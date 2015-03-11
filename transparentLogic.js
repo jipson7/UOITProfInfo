@@ -13,17 +13,9 @@ $( document ).ready(function(){
 
 	for(var i = 0; i < PROF_MASTERLIST.length; i++){
 
+		nameTags = getAllMatchingTags(PROF_MASTERLIST[i]);
 
-		$("*:contains(" + PROF_MASTERLIST[i] + ")").filter(function() {
-
-			var reg = new RegExp(PROF_MASTERLIST[i], 'i');
-
-			return reg.test($(this).text());
-
-		}).each(function() {
-
-			$(this).append("<button>" + PROF_MASTERLIST[i] + "</button>")
-		})
+		nameTags.append("<button>" + PROF_MASTERLIST[i] + "</button>");
 
 	}
 		
@@ -31,25 +23,27 @@ $( document ).ready(function(){
 
 function getAllMatchingTags(profName) {
 
+	
 
+	var containerTree = $("*:contains(" + profName + ")");
 
-	var containerTree = $("*:contains(" + profName + ")").filter(function(){ 
+	var nameTree = containerTree.filter(function(){ 
         		
         return $(this).children().length === 0;
 
     });
 
-    if (containerTree.length === 0) {
+	if (nameTree.length === 0) {
 
-    	var containerTree = $("*:contains(" + profName + ")").filter(function(){ 
+		nameTree = containerTree.filter(function(){ 
         		
-        	return $(this).children().length === 1;
+        	return $(this).children().children().length === 0;
 
     	});
 
-    } 
+	}
 
-    return containerTree;
+	return nameTree;
 
 
 

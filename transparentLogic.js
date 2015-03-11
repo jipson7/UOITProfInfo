@@ -9,7 +9,15 @@ $.expr[":"].contains = $.expr.createPseudo(function(arg) {
 
 $( document ).ready(function(){
 
+	$( window ).load(function() {
 
+		console.log("TETSTETSTTES");
+
+	});
+
+	var frameTree = parent.frames[1].document.getElementsByTagName("H2").innerText
+
+	console.log(frameTree);
 	
 	var nameTags;
 
@@ -23,7 +31,7 @@ $( document ).ready(function(){
 
 		}
 
-	}
+	 }
 		
 });
 
@@ -49,7 +57,9 @@ function getAllMatchingTags(profName) {
 
     	if (nameTree.length === 0) {
 
-    		nameTree = $("*:contains(" + profName + ")",top.frames["content"].document).filter(function() {
+    		var frameTree = parent.frames[1].document;
+
+    		$(frameTree).find("*:contains(" + profName + ")").filter(function() {
 
     			return $(this).children().length === 0;
 
@@ -62,6 +72,12 @@ function getAllMatchingTags(profName) {
 	return nameTree;
 
 }
+
+$(parent.frames[1]).load(function() {
+
+	console.log("Helllloooo");
+
+});
 
 
 function testPHP() {

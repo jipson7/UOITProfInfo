@@ -1,4 +1,4 @@
-var API_URL = "http://localhost/transparentUOIT/ratings.php";
+var API_URL = "https://104.236.252.33/ratings.php";
 
 var IMAGE_URL = chrome.extension.getURL('icon.png');
 
@@ -61,7 +61,7 @@ function getMatchingTags(profName) {
 
 function getProfData(profName) {
 
-	$.getJSON(API_URL, profName.toLowerCase(), function(data){
+	$.get(API_URL, profName.toLowerCase(), function(data){
 
 		return data;
 

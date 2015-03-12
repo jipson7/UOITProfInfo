@@ -16,13 +16,13 @@
 		"http://www.socialscienceandhumanities.uoit.ca/people*",
 		"https://ssbp.mycampus.ca/prod/bwskfshd.P_CrseSchdDetl",
 		"https://ssbp.mycampus.ca/prod/bwskfcls.P_GetCrse"],
-		"js": ["jquery.js", "PROF_MASTERLIST.js", "transparentLogic.js"],
+		"js": ["lib/jquery.js", "PROF_MASTERLIST.js", "transparentLogic.js"],
 		"run-at": "document_start",
 		"all_frames": true,
-		"match_about_blank": true,
-		"web_accessible_resources": ["logo.png"]
+		"match_about_blank": true
 	}
-	]
+	],
 
+	"web_accessible_resources": ["icon.png"]
 	
 }

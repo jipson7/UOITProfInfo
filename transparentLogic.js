@@ -1,3 +1,4 @@
+var IMAGE_URL = chrome.extension.getURL('icon.png');
 
 $(document).ready(function() {
 
@@ -16,7 +17,9 @@ function injectButtons(currentPath){
 
 		if ((nameTags != null)&&(nameTags.length != 0)) {
 
-			nameTags.append("<button>" + PROF_MASTERLIST[i] + "</button>");
+			//nameTags.append("<button>" + PROF_MASTERLIST[i] + "</button>");
+			
+			nameTags.append("<img src='" + IMAGE_URL +  "'/>");
 
 		}
 

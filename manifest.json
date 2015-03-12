@@ -7,10 +7,19 @@
 
 	"content_scripts": [
 	{
-		"matches": ["http://www.science.uoit.ca/*", "http://www.businessandit.uoit.ca/*", "http://education.uoit.ca/*", "http://nuclear.uoit.ca/*", "http://www.engineering.uoit.ca/*", "http://www.healthsciences.uoit.ca/*", "http://www.socialscienceandhumanities.uoit.ca/*", "http://gradstudies.uoit.ca/*", "http://portal.mycampus.ca/*", "https://ssbp.mycampus.ca/prod/bwskfshd.P_CrseSchdDetl"],
+		"matches": ["http://www.science.uoit.ca/people*", 
+		"http://www.businessandit.uoit.ca/people*", 
+		"http://education.uoit.ca/people*", 
+		"http://nuclear.uoit.ca/people*", 
+		"http://www.engineering.uoit.ca/people*", 
+		"http://www.healthsciences.uoit.ca/people*", 
+		"http://www.socialscienceandhumanities.uoit.ca/people*",
+		"https://ssbp.mycampus.ca/prod/bwskfshd.P_CrseSchdDetl",
+		"https://ssbp.mycampus.ca/prod/bwskfcls.P_GetCrse"],
 		"js": ["jquery.js", "PROF_MASTERLIST.js", "transparentLogic.js"],
 		"run-at": "document_start",
-		"all_frames": true
+		"all_frames": true,
+		"match_about_blank": true
 	}
 	]
 

@@ -61,6 +61,8 @@ function checkCurrentURL() {
 
 	}
 
+	return 0;
+
 }
 
 function checkFrameURL() {
@@ -69,23 +71,33 @@ function checkFrameURL() {
 
 }
 
-//KEEEEEEP THIS
-// var frameContent = parent.frames[1];
+function checkParsableFrameUrl() {
 
-// console.log(frameContent.location.href)
+	var parsableURLS = ["ssbp.mycampus.ca/prod/bwskfshd.P_CrseSchdDetl"];
 
-//TD TAG EXAMPLE
-// var tags = $("td", parents.frames[1].document)
+	for (var i = 0; i < parsableURLS.length; i++) {
+
+		if (checkFrameURL().indexOf(parsableURLS[i]) > -1) {
+
+			return true;
+
+		}
+	}
+
+	return false;
+
+}
 
 function getMatchingTagsPORTAL(profName) {
 
-	console.log("Thank you");
-
 	var nameTree;
 
-	var frameRoot = parent.frames[1].document;
+	var frameRoot = parent.frames[1].document.body;
+	console.log("finding frame document");
+	console.log(frameRoot);
 
 	var frameTree = $("*:contains(" + profName + ")", frameRoot);
+	console.log("finding frame elements");
 
 	nameTree = $(frameTree).filter(function() {
 
@@ -163,13 +175,20 @@ function startHREFUrlTimer() {
 
 function HREFUrlTimer() {
 
+	//Check to see if we've left portal.mycampus
 	if (checkCurrentURL() != 2) {
 
 		return;
 
+	//Check to see if we've changed frames
 	} else if (checkFrameURL() != PORTAL_FRAME_URL) {
 
-		injectButtons(2);
+		//check to see if we're actually at a frame that requires parsing within the portal
+		if(checkParsableFrameUrl()){
+
+			injectButtons(2);
+
+		}
 		PORTAL_FRAME_URL = checkFrameURL();
 
 	}

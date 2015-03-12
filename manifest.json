@@ -19,7 +19,8 @@
 		"js": ["jquery.js", "PROF_MASTERLIST.js", "transparentLogic.js"],
 		"run-at": "document_start",
 		"all_frames": true,
-		"match_about_blank": true
+		"match_about_blank": true,
+		"web_accessible_resources": ["logo.png"]
 	}
 	]
 

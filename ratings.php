@@ -1,6 +1,6 @@
 <?php
 
-$fullName = "randy fortier";
+$fullName = $_GET[0];
 
 $pythonStatement = "python getRatings.py \"" . $fullName . "\"";
 

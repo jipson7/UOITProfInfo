@@ -1,3 +1,5 @@
+var API_URL = "http://localhost/transparentUOIT/ratings.php";
+
 var IMAGE_URL = chrome.extension.getURL('icon.png');
 
 $(document).ready(function() {
@@ -10,6 +12,8 @@ function injectButtons(currentPath){
 
 	var nameTags;
 
+	var currentProfData;
+
 	for(var i = 0; i < PROF_MASTERLIST.length; i++){
 
 		nameTags = getMatchingTags(PROF_MASTERLIST[i]);
@@ -18,6 +22,10 @@ function injectButtons(currentPath){
 		if ((nameTags != null)&&(nameTags.length != 0)) {
 
 			//nameTags.append("<button>" + PROF_MASTERLIST[i] + "</button>");
+
+			currentProfData = getProfData(PROF_MASTERLIST[i]);
+
+			alert(currentProfData);
 			
 			nameTags.append("<img src='" + IMAGE_URL +  "'/>");
 
@@ -48,6 +56,16 @@ function getMatchingTags(profName) {
 	}
 
 	return nameTree;
+
+}
+
+function getProfData(profName) {
+
+	$.getJSON(API_URL, profName.toLowerCase(), function(data){
+
+		return data;
+
+	})
 
 }
 

@@ -5,6 +5,10 @@
 	"description": "Injects information on UOIT professors into any UOIT domain, including 'ratemyprofessor' ratings, salary information from the sunshine list, and more.",
 	"version": "1.0",
 
+	"permissions": [
+    	"http://localhost/transparentUOIT/ratings.php"
+  	],
+
 	"content_scripts": [
 	{
 		"matches": ["http://www.science.uoit.ca/people*", 
@@ -16,7 +20,8 @@
 		"http://www.socialscienceandhumanities.uoit.ca/people*",
 		"https://ssbp.mycampus.ca/prod/bwskfshd.P_CrseSchdDetl",
 		"https://ssbp.mycampus.ca/prod/bwskfcls.P_GetCrse"],
-		"js": ["lib/jquery.js", "PROF_MASTERLIST.js", "transparentLogic.js"],
+		"js": ["lib/jquery.js", "lib/opentip.js", "PROF_MASTERLIST.js", "transparentLogic.js"],
+		"css": ["lib/opentip.css"],
 		"run-at": "document_start",
 		"all_frames": true,
 		"match_about_blank": true

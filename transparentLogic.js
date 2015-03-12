@@ -11,9 +11,13 @@ $( document ).ready(function(){
 
 	} else if (currentPath === 1) {
 
+		alert("We're on a main page");
+
 		injectButtons(1);
 
-	} else if (currentPath == 2) {
+	} else if (currentPath === 2) {
+
+		alert("We're on a frame page");
 
 		setTimeout(function() {
 
@@ -22,6 +26,10 @@ $( document ).ready(function(){
 			PORTAL_FRAME_URL = checkFrameURL();
 
 		}, 100);
+
+	} else if (currentPath ===3) {
+
+		alert("its loading the frame, its a miracle");
 
 	}
 	
@@ -38,6 +46,8 @@ function checkCurrentURL() {
 
 	//RETURN VALUE OF 2 REPRESENTS THESE
 	var URLS_PORTAL = ["portal.mycampus.ca/cp"];
+
+	var URLS_FRAME = ["https://ssbp.mycampus.ca/prod/bwskfshd.P_CrseSchdDetl"]
 
 	var currentURL = document.URL;
 
@@ -56,6 +66,16 @@ function checkCurrentURL() {
 		if (currentURL.indexOf(URLS_PORTAL[i]) > -1){
 
 			return 2;
+
+		}
+
+	}
+
+	for (var i = 0; i < URLS_FRAME.length; i++) {
+
+		if (currentURL.indexOf(URLS_FRAME[i]) > -1){
+
+			return 3;
 
 		}
 
@@ -186,6 +206,8 @@ function HREFUrlTimer() {
 		//check to see if we're actually at a frame that requires parsing within the portal
 		if(checkParsableFrameUrl()){
 
+			//testScrape();
+
 			injectButtons(2);
 
 		}
@@ -220,4 +242,14 @@ $.expr[":"].contains = $.expr.createPseudo(function(arg) {
     };
 });
 
+function testScrape() {
+
+	var frameRoot = parent.frames[1].document;
+
+	var xpathResult = frameRoot.evaluate('//*[text()="' + "Class" + '"]', frameRoot, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE).snapshotItem(0);
+
+	console.log(xpathResult);
+
+
+}
 

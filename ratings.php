@@ -1,6 +1,6 @@
 <?php
 
-$fullName = $_GET[0];
+$fullName = $_GET["profname"];
 
 $pythonStatement = "python getRatings.py \"" . $fullName . "\"";
 

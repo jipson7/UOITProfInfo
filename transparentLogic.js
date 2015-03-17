@@ -12,8 +12,6 @@ function injectButtons(currentPath){
 
 	var nameTags;
 
-	var currentProfData;
-
 	for(var i = 0; i < PROF_MASTERLIST.length; i++){
 
 		nameTags = getMatchingTags(PROF_MASTERLIST[i]);
@@ -23,9 +21,10 @@ function injectButtons(currentPath){
 
 			//nameTags.append("<button>" + PROF_MASTERLIST[i] + "</button>");
 
-			currentProfData = getProfData(PROF_MASTERLIST[i]);
+			var currentProfData = getProfData(PROF_MASTERLIST[i]);
 
 			alert(currentProfData);
+
 			
 			nameTags.append("<img src='" + IMAGE_URL +  "'/>");
 
@@ -61,11 +60,16 @@ function getMatchingTags(profName) {
 
 function getProfData(profName) {
 
-	$.get(API_URL, {"profname" : profName.toLowerCase()}, function(data){
+	var requestUrl = API_URL + "?profname=" + encodeURIComponent(profName);
+
+	$.get(requestUrl, function(data){
+
+		alert(data);
 
 		return data;
 
-	})
+
+	});
 
 }
 

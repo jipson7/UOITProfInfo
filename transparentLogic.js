@@ -21,7 +21,14 @@ function injectButtons(currentPath){
 
 			//nameTags.append("<button>" + PROF_MASTERLIST[i] + "</button>");
 
-			var currentProfData = getProfData(PROF_MASTERLIST[i]);
+			var requestUrl = API_URL + "?profname=" + encodeURIComponent(PROF_MASTERLIST[i]);
+
+			$.get(requestUrl, function(data){
+
+				alert(data);
+
+
+			});
 
 			nameTags.append("<img src='" + IMAGE_URL +  "'/>");
 
@@ -52,21 +59,6 @@ function getMatchingTags(profName) {
 	}
 
 	return nameTree;
-
-}
-
-function getProfData(profName) {
-
-	var requestUrl = API_URL + "?profname=" + encodeURIComponent(profName);
-
-	var result = "noResult";
-
-	$.get(requestUrl, function(data){
-
-		result = data;
-
-
-	});
 
 }
 

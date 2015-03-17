@@ -61,7 +61,7 @@ function getMatchingTags(profName) {
 
 function getProfData(profName) {
 
-	$.post(API_URL, {"profname" : profName.toLowerCase()}, function(data){
+	$.get(API_URL, {"profname" : profName.toLowerCase()}, function(data){
 
 		return data;
 

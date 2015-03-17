@@ -1,4 +1,4 @@
-var API_URL = "https://104.236.252.33/ratings.php";
+var API_URL = "https://calebphillips.me/ratings.php";
 
 var IMAGE_URL = chrome.extension.getURL('icon.png');
 

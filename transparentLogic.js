@@ -23,9 +23,6 @@ function injectButtons(currentPath){
 
 			var currentProfData = getProfData(PROF_MASTERLIST[i]);
 
-			alert(currentProfData);
-
-			
 			nameTags.append("<img src='" + IMAGE_URL +  "'/>");
 
 		}
@@ -62,11 +59,11 @@ function getProfData(profName) {
 
 	var requestUrl = API_URL + "?profname=" + encodeURIComponent(profName);
 
+	var result = "noResult";
+
 	$.get(requestUrl, function(data){
 
-		alert(data);
-
-		return data;
+		result = data;
 
 
 	});

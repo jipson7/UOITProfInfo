@@ -16,34 +16,34 @@ function injectButtons(currentPath){
 
 		nameTags = getMatchingTags(PROF_MASTERLIST[i]);
 
-
 		if ((nameTags != null)&&(nameTags.length != 0)) {
 
-			var buttonsAdded = $("<img src='" + IMAGE_URL +  "'/>").appendTo(nameTags);
+			nameTags.after("<img src='" + IMAGE_URL +  "'/>");
 
 			var requestUrl = API_URL + "?profname=" + encodeURIComponent(PROF_MASTERLIST[i]);
 
 			$.get(requestUrl, function(data){
 
-				addToolTip(buttonsAdded, data);
-
+				console.log(data);
+				
 			});
-
 
 
 		}
 
 	 }
 
+
 }
 
 function addToolTip(elements, data) {
 
-	$(elements).each(function() {
+	$(elements).attr("class", "tooltip");
+	$(elements).attr("title", data);
 	
-		console.log("add tooltip now");
+		
 	
-	});
+
 
 }
 

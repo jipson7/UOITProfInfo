@@ -20,8 +20,8 @@
 		"http://www.socialscienceandhumanities.uoit.ca/people*",
 		"https://ssbp.mycampus.ca/prod/bwskfshd.P_CrseSchdDetl",
 		"https://ssbp.mycampus.ca/prod/bwskfcls.P_GetCrse"],
-		"js": ["lib/jquery.js", "lib/tooltipster.js", "PROF_MASTERLIST.js", "transparentLogic.js"],
-		"css": ["lib/tooltipster.css"],
+		"css": ["lib/jquery-ui.css"],
+		"js": ["lib/jquery.js", "lib/jquery-ui.js", "PROF_MASTERLIST.js", "transparentLogic.js"],
 		"run-at": "document_start",
 		"all_frames": true,
 		"match_about_blank": true

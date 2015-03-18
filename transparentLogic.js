@@ -12,7 +12,7 @@ function injectButtons(currentPath){
 
 	var nameTags;
 
-	var counter = 0;
+	var buttons = new Object();
 
 	for(var i = 0; i < PROF_MASTERLIST.length; i++){
 
@@ -20,13 +20,16 @@ function injectButtons(currentPath){
 
 		if ((nameTags != null)&&(nameTags.length != 0)) {
 
-			nameTags.after("<img id='tooltipIcon" + counter++ + "' title='TEST' src='" + IMAGE_URL +  "'/>");
+			nameTags.after("<img class='tooltipIcon" + i + "' title='TEST' src='" + IMAGE_URL +  "'/>");
+
+			buttons[i] = "";
 
 			var requestUrl = API_URL + "?profname=" + encodeURIComponent(PROF_MASTERLIST[i]);
 
 			$.get(requestUrl, function(data){
 
 				console.log(data);
+				buttons[i] = data;
 				
 			});
 
@@ -35,18 +38,26 @@ function injectButtons(currentPath){
 
 	 }
 
-	setTimeout(function(){
-	
-		for (var i = 0; i < counter; i++) {
+
+	for (var property in buttons) {
+
+		if (buttons.hasOwnProperty(property)) {
 
 			$(function() {
-			
-				$("#tooltipIcon" + i).tooltip();
-			
+		
+				$(".tooltipIcon" + property).tooltip({
+					
+					content: buttons[property]
+					
+				});
+		
 			});
+
+
 		}
-	
-	}, 9000);
+	}
+
+
 
 
 }

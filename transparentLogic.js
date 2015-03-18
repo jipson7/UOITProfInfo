@@ -19,22 +19,31 @@ function injectButtons(currentPath){
 
 		if ((nameTags != null)&&(nameTags.length != 0)) {
 
-			//nameTags.append("<button>" + PROF_MASTERLIST[i] + "</button>");
+			var buttonsAdded = $("<img src='" + IMAGE_URL +  "'/>").appendTo(nameTags);
 
 			var requestUrl = API_URL + "?profname=" + encodeURIComponent(PROF_MASTERLIST[i]);
 
 			$.get(requestUrl, function(data){
 
-				alert(data);
-
+				addToolTip(buttonsAdded, data);
 
 			});
 
-			var buttonsAppended = $("<img src='" + IMAGE_URL +  "'/>").appendTo(nameTags);
+
 
 		}
 
 	 }
+
+}
+
+function addToolTip(elements, data) {
+
+	$(elements).each(function() {
+	
+		console.log("Add tooltip now");
+	
+	});
 
 }
 

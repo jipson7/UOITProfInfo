@@ -41,7 +41,7 @@ function addToolTip(elements, data) {
 
 	$(elements).each(function() {
 	
-		console.log("Add tooltip now");
+		console.log("add tooltip now");
 	
 	});
 

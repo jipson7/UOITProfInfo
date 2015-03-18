@@ -12,13 +12,15 @@ function injectButtons(currentPath){
 
 	var nameTags;
 
+	var counter = 0;
+
 	for(var i = 0; i < PROF_MASTERLIST.length; i++){
 
 		nameTags = getMatchingTags(PROF_MASTERLIST[i]);
 
 		if ((nameTags != null)&&(nameTags.length != 0)) {
 
-			nameTags.after("<img src='" + IMAGE_URL +  "'/>");
+			nameTags.after("<img id='tooltipIcon" + counter++ + "' title='TEST' src='" + IMAGE_URL +  "'/>");
 
 			var requestUrl = API_URL + "?profname=" + encodeURIComponent(PROF_MASTERLIST[i]);
 
@@ -32,6 +34,19 @@ function injectButtons(currentPath){
 		}
 
 	 }
+
+	setTimeout(function(){
+	
+		for (var i = 0; i < counter; i++) {
+
+			$(function() {
+			
+				$("#tooltipIcon" + i).tooltip();
+			
+			});
+		}
+	
+	}, 9000);
 
 
 }

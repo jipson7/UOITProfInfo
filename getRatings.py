@@ -85,8 +85,6 @@ def extractData(dataPage):
 
 			dataResultList.append(re.search(reg, dataPage))
 
-		dataResultList.append(PROF_DATA_URL)
-
 		for result in dataResultList:
 
 			if result is not None:
@@ -96,6 +94,8 @@ def extractData(dataPage):
 			else:
 
 				print ("null"),
+
+		sys.stdout.write(" " + PROF_DATA_URL);
 		
 
 ######################################################

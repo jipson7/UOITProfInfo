@@ -1,6 +1,6 @@
 var API_URL = "https://calebphillips.me/ratings.php";
 
-var IMAGE_URL = chrome.extension.getURL('icon.png');
+var IMAGE_URL = chrome.extension.getURL('lib/icon.png');
 
 $(document).ready(function() {
 
@@ -20,7 +20,7 @@ function injectButtons(currentPath){
 
 		if ((nameTags != null)&&(nameTags.length != 0)) {
 
-			nameTags.after("<img class='tooltipIcon" + i + "' src='" + IMAGE_URL +  "'/>");
+			nameTags.after("<img class='tooltipIcon" + i + " globalTooltip' src='" + IMAGE_URL +  "'/>");
 
 			buttons[i] = "";
 

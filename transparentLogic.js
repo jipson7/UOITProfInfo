@@ -189,19 +189,27 @@ function designData(data) {
 
 function getMatchingTags(profName) {
 
-	var containerTree = getTextNodesIn("body");
+	var temp = document.getElementsByTagName("*");
 
 	var regex = new RegExp(buildNameRegex(profName));
 
-	var nameTree = containerTree.filter(function(){ 
-        		
-        return regex.test($(this).text());
+	var nameTree = [];
 
-    });
+	for (var i = 0; i < temp.length; i++) {
 
-		
+		if (regex.test($(temp[i]).text())) {
 
-	return nameTree;
+			console.log("cool");
+
+			nameTree.push(temp[i]);
+
+		}
+
+	}
+
+	
+
+	return $(nameTree);
 
 }
 

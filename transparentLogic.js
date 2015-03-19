@@ -86,11 +86,36 @@ function createToolTips(buttons) {
 							
 						return this.getAttribute("title");
 							
-					}	
+					},
+
+					show: null, 
+
+					close: function (event, ui) {
+
+					ui.tooltip.hover(
+
+						function () {
+
+							$(this).stop(true).fadeTo(400, 1);
+
+						},    
+
+						function () {
+
+							$(this).fadeOut("400", function () {
+
+								$(this).remove();
+
+							})
+
+						});
+
+					}
+
+
 				
 				});
-					
-		
+
 			});
 
 		}
@@ -105,20 +130,20 @@ function designNoData(data) {
 
 	var dataArray = data.split(" ");
 
-	var buildReturn;
+	var buildReturn = "";
 
 	if (dataArray[1] === "notExist") {
 
-		buildReturn += "This person does not have a page yet. <br />";
+		buildReturn += "This person has not been rated yet. <br />";
 
-		buildReturn += "You can give them one <a href='" + addNewPersonUrl + "'>here</a>;
+		buildReturn += "You can give them one <a href='" + addNewPersonUrl + "' target='_blank'>here</a>";
 
 	} else if (dataArray[1] === "noData") {
 
 
-		buildReturn += "This person does not have any ratings yet. <br />";
+		buildReturn += "This person is not yet rated. <br />";
 
-		buildReturn += "You can give them one <a href='" + dataArray[2] + "'>here</a>";
+		buildReturn += "You can give them one <a href='" + dataArray[2] + "' target='_blank'>here</a>";
 
 	}
 
@@ -153,7 +178,9 @@ function designData(data) {
 
 	buildReturn += "Easiness: " + dataArray[5] + "<br />";
 
-	buildReturn += "Based on " + dataArray[6] + " Ratings.";
+	buildReturn += "Based on " + dataArray[6] + " Ratings. <br />";
+
+	buildReturn += "Rate them <a href='" + dataArray[7] + "' target='_blank'>here</a>";
 
 	return buildReturn;
 

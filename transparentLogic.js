@@ -65,34 +65,64 @@ function createToolTips(buttons) {
 
 			var currentTitle = buttons[property];
 
-			if (currentTitle != "noResults") {
+			var checkResults = (buttons[property]).split(" ");
 
-				$(function() {
-			
+
+			$(function() {
+		
+				if (checkResults[0] != "noResults") {
+
 					$(".tooltipIcon" + property).attr("title", designData(currentTitle));
-					$(".tooltipIcon" + property).tooltip({
-					
-					
-						content:function() {
-								
-							return this.getAttribute("title");
-								
-						}	
-					
-					});
-						
-			
+
+				}else {
+
+					$(".tooltipIcon" + property).attr("title", designNoData(currentTitle));
+
+				}
+				$(".tooltipIcon" + property).tooltip({
+				
+				
+					content:function() {
+							
+						return this.getAttribute("title");
+							
+					}	
+				
 				});
-
-			} else {
-
-				//In the else statement I will change the icon to being crossed out 
-				//if it has no data, and then suggest the user to submit the first rating
-
-			}
+					
+		
+			});
 
 		}
 	}
+
+
+}
+
+function designNoData(data) {
+
+	var addNewPersonUrl = "http://www.ratemyprofessors.com/AddTeacher.jsp";
+
+	var dataArray = data.split(" ");
+
+	var buildReturn;
+
+	if (dataArray[1] === "notExist") {
+
+		buildReturn += "This person does not have a page yet. <br />";
+
+		buildReturn += "You can give them one <a href='" + addNewPersonUrl + "'>here</a>;
+
+	} else if (dataArray[1] === "noData") {
+
+
+		buildReturn += "This person does not have any ratings yet. <br />";
+
+		buildReturn += "You can give them one <a href='" + dataArray[2] + "'>here</a>";
+
+	}
+
+	return buildReturn;
 
 
 }

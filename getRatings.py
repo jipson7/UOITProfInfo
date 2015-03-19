@@ -2,6 +2,7 @@ import sys
 import urllib2
 import re
 
+PROF_DATA_URL = "unavailable";
 
 def getDataURL(fullName):
 
@@ -24,7 +25,7 @@ def getDataURL(fullName):
 
 	if re.search(noResultsRegex, searchResults) is not None:
 
-		print "noResults"
+		print "noResults notExist"
 
 		sys.exit()
 
@@ -39,6 +40,10 @@ def getDataURL(fullName):
 	return informationPageURL
 
 def getDataPage(dataURL):
+
+	global PROF_DATA_URL
+
+	PROF_DATA_URL = dataURL
 
 	dataPage = urllib2.urlopen(dataURL).read()
 
@@ -68,7 +73,7 @@ def extractData(dataPage):
 
 	if re.search(noDataRegex, dataPage) is not None:
 
-		print "noResults"
+		print "noResults noData " + PROF_DATA_URL
 
 		sys.exit()
 

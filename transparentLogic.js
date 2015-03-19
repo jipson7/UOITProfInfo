@@ -4,6 +4,8 @@ var IMAGE_URL = chrome.extension.getURL('lib/icon.png');
 
 $(document).ready(function() {
 
+	alert(buildNameRegex("Randy Fortier"));
+
 	injectButtons();
 
 })
@@ -112,15 +114,13 @@ function createToolTips(buttons) {
 
 					}
 
-
-				
 				});
 
 			});
 
 		}
-	}
 
+	}
 
 }
 
@@ -189,25 +189,43 @@ function designData(data) {
 
 function getMatchingTags(profName) {
 
-	var containerTree = $("*:contains(" + profName + ")");
+	var containerTree = getTextNodesIn("body");
+
+	var regex = new RegExp(buildNameRegex(profName));
 
 	var nameTree = containerTree.filter(function(){ 
         		
-        return $(this).children().length === 0;
+        return regex.test($(this).text());
 
     });
 
-	if (nameTree.length === 0) {
+		
 
-		nameTree = containerTree.filter(function(){ 
-        		
-        	return $(this).children().children().length === 0;
+	return nameTree;
 
-    	});
+}
+
+function buildNameRegex(name) {
+
+	var splitName = name.split(" ");
+
+	returnName = "/" + splitName[0] + "([A-Z. ]+)?";
+
+	for (var i = 1; i < splitName.length; i++) {
+
+		if (i == splitName.length - 1) {
+
+			returnName += splitName[i] + "/i";
+
+		} else {
+
+			returnName += splitName[i] + " ";
+
+		}
 
 	}
 
-	return nameTree;
+	return returnName;
 
 }
 
@@ -260,3 +278,13 @@ function sandwichPaula(currentName) {
 	return rebuiltName;
 
 }
+
+var getTextNodesIn = function(el) {
+
+    return $(el).find(":not(iframe)").addBack().contents().filter(function() {
+
+        return this.nodeType == 3;
+
+    });
+
+};

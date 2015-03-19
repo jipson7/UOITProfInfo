@@ -28,8 +28,8 @@ function injectButtons(currentPath){
 
 			$.get(requestUrl, function(data){
 
-				var returnID = str.substr(0,str.indexOf(' '));
-				var returnData = str.substr(str.indexOf(' ')+1);
+				var returnID = data.substr(0,data.indexOf(' '));
+				var returnData = data.substr(data.indexOf(' ')+1);
 				console.log(data);
 				buttons[returnID] = returnData;
 				
@@ -40,25 +40,25 @@ function injectButtons(currentPath){
 
 	 }
 
+	setTimeout(function() {
 
-	for (var property in buttons) {
+		for (var property in buttons) {
 
-		if (buttons.hasOwnProperty(property)) {
+			if (buttons.hasOwnProperty(property)) {
 
-			$(function() {
-		
-				$(".tooltipIcon" + property).tooltip({
-					
-					content: buttons[property]
-					
+				$(function() {
+			
+					$(".tooltipIcon" + property).attr("title", buttons[property]);
+					$(".tooltipIcon" + property).tooltip();
+						
+			
 				});
-		
-			});
 
 
+			}
 		}
-	}
 
+	}, 4000);
 
 
 

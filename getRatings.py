@@ -7,11 +7,11 @@ def getDataURL(fullName):
 
 	searchURL = "http://www.ratemyprofessors.com/search.jsp?queryoption=HEADER&queryBy=teacherName&schoolName=University+of+Ontario+Institute+of+Technology&schoolID=4714&query="
 
-	for i in range(0,(len(fullName) - 1)):
+	for i in range(0,(len(fullName))):
 			
 		searchURL += fullName[i]
 
-		if (i != (len(fullName) - 1)):
+		if (i != (len(fullName))):
 
 			searchURL += "+"
 

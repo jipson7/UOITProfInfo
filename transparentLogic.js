@@ -16,15 +16,23 @@ function injectButtons(currentPath){
 
 	for(var i = 0; i < PROF_MASTERLIST.length; i++){
 
-		nameTags = getMatchingTags(PROF_MASTERLIST[i]);
+		var currentProfName = PROF_MASTERLIST[i];
+
+		nameTags = getMatchingTags(currentProfName);
 
 		if ((nameTags != null)&&(nameTags.length != 0)) {
 
-			nameTags.after("<img class='tooltipIcon" + i + " globalTooltip' src='" + IMAGE_URL +  "'/>");
+			nameTags.append("<img class='tooltipIcon" + i + " globalTooltip' src='" + IMAGE_URL +  "'/>");
 
 			buttons[i] = "";
 
-			var requestUrl = API_URL + "?profname=" + encodeURIComponent(PROF_MASTERLIST[i]) + "&profid=" + i;
+			if ((currentProfName.split(" ")).length > 2) {
+
+				currentProfName = sandwichPaula(currentProfName);
+
+			}
+
+			var requestUrl = API_URL + "?profname=" + encodeURIComponent(currentProfName) + "&profid=" + i;
 
 			$.get(requestUrl, function(data){
 
@@ -46,8 +54,6 @@ function injectButtons(currentPath){
 		createToolTips(buttons);
 	
 	});
-
-
 
 }
 
@@ -128,5 +134,21 @@ jQuery.expr[':'].regex = function(elem, index, match) {
         regex = new RegExp(matchParams.join('').replace(/^s+|s+$/g,''), regexFlags);
 
     return regex.test(jQuery(elem)[attr.method](attr.property));
+
+}
+
+function sandwichPaula(currentName) {
+
+	var splitName = currentName.split(" ");
+
+	var rebuiltName = splitName[0];
+
+	for (var i = 1; i < splitName.length; i++) {
+
+		rebuiltName += splitName[i];
+
+	}
+
+	return rebuiltName;
 
 }

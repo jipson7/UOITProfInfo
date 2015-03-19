@@ -18,12 +18,23 @@ def parseNames(page):
 
 	for (name) in re.findall(namePattern, page):
 
-		profList.append(name)
+		profList.append(name.strip())
+
+		if len(name.split()) > 2:
+
+			brokenName = name.split()
+
+			nameRebuild = brokenName[0] + " "
+
+			for i in range(1,len(brokenName)):
+
+				nameRebuild += brokenName[i];
+
+			profList.append(nameRebuild.strip());
+
 
 
 for item in URL_LIST:
-
-
 
 	currentPage = urllib2.urlopen(URL_BASE + item).read()
 

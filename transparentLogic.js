@@ -63,18 +63,69 @@ function createToolTips(buttons) {
 
 		if (buttons.hasOwnProperty(property)) {
 
-			$(function() {
-		
-				$(".tooltipIcon" + property).attr("title", buttons[property]);
-				$(".tooltipIcon" + property).tooltip();
-					
-		
-			});
+			var currentTitle = buttons[property];
 
+			if (currentTitle != "noResults") {
+
+				$(function() {
+			
+					$(".tooltipIcon" + property).attr("title", designData(currentTitle));
+					$(".tooltipIcon" + property).tooltip({
+					
+					
+						content:function() {
+								
+							return this.getAttribute("title");
+								
+						}	
+					
+					});
+						
+			
+				});
+
+			} else {
+
+				//In the else statement I will change the icon to being crossed out 
+				//if it has no data, and then suggest the user to submit the first rating
+
+			}
 
 		}
 	}
 
+
+}
+
+function designData(data) {
+
+	var dataArray = data.split(" ");
+
+	for (var i = 0; i < dataArray.length; i++) {
+
+		if (dataArray[i] === "null") {
+
+			dataArray[i] = "---";
+
+		}
+
+	}
+
+	var buildReturn = "Overall Rating: " + dataArray[0] + "<br />";
+	
+	buildReturn += "Average Grade Received: " + dataArray[1] + "<br />";
+
+	buildReturn += "Hotness: " + dataArray[2] + "<br />";
+
+	buildReturn += "Helpfulness: " + dataArray[3] + "<br />";
+
+	buildReturn += "Clarity: " + dataArray[4] + "<br />";
+
+	buildReturn += "Easiness: " + dataArray[5] + "<br />";
+
+	buildReturn += "Based on " + dataArray[6] + " Ratings.";
+
+	return buildReturn;
 
 }
 

@@ -29,8 +29,9 @@ function injectButtons(currentPath){
 			$.get(requestUrl, function(data){
 
 				var returnID = data.substr(0,data.indexOf(' '));
+
 				var returnData = data.substr(data.indexOf(' ')+1);
-				console.log(data);
+
 				buttons[returnID] = returnData;
 				
 			});
@@ -40,40 +41,37 @@ function injectButtons(currentPath){
 
 	 }
 
-	setTimeout(function() {
-
-		for (var property in buttons) {
-
-			if (buttons.hasOwnProperty(property)) {
-
-				$(function() {
-			
-					$(".tooltipIcon" + property).attr("title", buttons[property]);
-					$(".tooltipIcon" + property).tooltip();
-						
-			
-				});
-
-
-			}
-		}
-
-	}, 4000);
+	$( document ).ajaxStop(function() {
+	
+		createToolTips(buttons);
+	
+	});
 
 
 
 }
 
-function addToolTip(elements, data) {
+function createToolTips(buttons) {
 
-	$(elements).attr("class", "tooltip");
-	$(elements).attr("title", data);
-	
+	for (var property in buttons) {
+
+		if (buttons.hasOwnProperty(property)) {
+
+			$(function() {
 		
-	
+				$(".tooltipIcon" + property).attr("title", buttons[property]);
+				$(".tooltipIcon" + property).tooltip();
+					
+		
+			});
+
+
+		}
+	}
 
 
 }
+
 
 function getMatchingTags(profName) {
 

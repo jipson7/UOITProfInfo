@@ -20,16 +20,18 @@ function injectButtons(currentPath){
 
 		if ((nameTags != null)&&(nameTags.length != 0)) {
 
-			nameTags.after("<img class='tooltipIcon" + i + "' title='TEST' src='" + IMAGE_URL +  "'/>");
+			nameTags.after("<img class='tooltipIcon" + i + "' src='" + IMAGE_URL +  "'/>");
 
 			buttons[i] = "";
 
-			var requestUrl = API_URL + "?profname=" + encodeURIComponent(PROF_MASTERLIST[i]);
+			var requestUrl = API_URL + "?profname=" + encodeURIComponent(PROF_MASTERLIST[i]) + "&profid=" + i;
 
 			$.get(requestUrl, function(data){
 
+				var returnID = str.substr(0,str.indexOf(' '));
+				var returnData = str.substr(str.indexOf(' ')+1);
 				console.log(data);
-				buttons[i] = data;
+				buttons[returnID] = returnData;
 				
 			});
 

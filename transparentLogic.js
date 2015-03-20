@@ -258,8 +258,6 @@ function buildNameRegex(name) {
 
 function sandwichPaula(currentName) {
 
-	
-
 	var splitName = currentName.split(" ");
 
 	if (splitName[1] == "de") {
@@ -268,7 +266,7 @@ function sandwichPaula(currentName) {
 
 	}
 
-	var rebuiltName = splitName[0];
+	var rebuiltName = splitName[0] + " ";
 
 	for (var i = 1; i < splitName.length; i++) {
 

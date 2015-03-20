@@ -218,7 +218,7 @@ function buildNameRegex(name) {
 
 	var splitName = name.split(" ");
 
-	returnName = splitName[0] + "\\s?[A-Za-z]?.?\\s?";
+	returnName = splitName[0] + "\\s?[A-Za-z]?(.\\s)?";
 
 	for (var i = 1; i < splitName.length; i++) {
 

@@ -2,12 +2,26 @@ var API_URL = "https://calebphillips.me/ratings.php";
 
 var IMAGE_URL = chrome.extension.getURL('lib/icon.png');
 
-var TEXT_NODES = getTextNodes();
+var GLOBAL_RUN = false;
+
+var TEXT_NODES;
 
 $(document).ready(function() {
 
-	injectButtons();
+	if (! GLOBAL_RUN) {
 
+		GLOBAL_RUN = true;
+
+		TEXT_NODES = getTextNodes();
+
+		console.log("Nodes loaded");
+
+		injectButtons();
+
+
+	}
+
+	
 })
 
 function injectButtons(currentPath){
@@ -51,7 +65,11 @@ function injectButtons(currentPath){
 
 	 }
 
+	console.log("done adding buttons");
+
 	$( document ).ajaxStop(function() {
+
+		console.log("ajax requests finished");	
 	
 		createToolTips(buttons);
 
@@ -308,3 +326,5 @@ function getTextNodes() {
 	return children.parent();
 
 };
+
+

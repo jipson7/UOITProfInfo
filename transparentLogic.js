@@ -2,6 +2,8 @@ var API_URL = "https://calebphillips.me/ratings.php";
 
 var IMAGE_URL = chrome.extension.getURL('lib/icon.png');
 
+var TEXT_NODES = getTextNodes();
+
 $(document).ready(function() {
 
 	injectButtons();
@@ -52,7 +54,7 @@ function injectButtons(currentPath){
 	$( document ).ajaxStop(function() {
 	
 		createToolTips(buttons);
-	
+
 	});
 
 }
@@ -189,25 +191,74 @@ function designData(data) {
 
 function getMatchingTags(profName) {
 
-	var containerTree = $("*:contains(" + profName + ")");
+	var regExpression = new RegExp(buildNameRegex(profName), "i");
 
-	var nameTree = containerTree.filter(function(){ 
-        		
-        return $(this).children().length === 0;
+	var result =  TEXT_NODES.filter(function() {
 
-    });
+		return ((regExpression.test($(this).text())) && ($(this).children().length == 0));
 
-	if (nameTree.length === 0) {
+	});
 
-		nameTree = containerTree.filter(function(){ 
-        		
-        	return $(this).children().children().length === 0;
+	if (result.length == 0) {
 
-    	});
+		var result =  TEXT_NODES.filter(function() {
+
+			return ((regExpression.test($(this).text())) && ($(this).children().children().length == 0));
+
+		});
 
 	}
 
-	return nameTree;
+	return result;
+
+
+}
+
+function buildNameRegex(name) {
+
+	var splitName = name.split(" ");
+
+	returnName = splitName[0] + "\\s?[A-Za-z]?.?\\s?";
+
+	for (var i = 1; i < splitName.length; i++) {
+
+		if (i == splitName.length - 1) {
+
+			returnName += splitName[i];
+
+		} else {
+
+			returnName += splitName[i] + " ";
+
+		}
+
+	}
+
+	return returnName;
+
+}
+
+function sandwichPaula(currentName) {
+
+	
+
+	var splitName = currentName.split(" ");
+
+	if (splitName[1] == "de") {
+
+		return currentName;
+
+	}
+
+	var rebuiltName = splitName[0];
+
+	for (var i = 1; i < splitName.length; i++) {
+
+		rebuiltName += splitName[i];
+
+	}
+
+	return rebuiltName;
 
 }
 
@@ -245,18 +296,15 @@ jQuery.expr[':'].regex = function(elem, index, match) {
 
 }
 
-function sandwichPaula(currentName) {
+//Select all child text nodes of an element
+function getTextNodes() {
 
-	var splitName = currentName.split(" ");
+    var children =  $(document).find(":not(iframe)").addBack().contents().filter(function() {
 
-	var rebuiltName = splitName[0];
+        return this.nodeType == 3;
 
-	for (var i = 1; i < splitName.length; i++) {
+    });
 
-		rebuiltName += splitName[i];
+	return children.parent();
 
-	}
-
-	return rebuiltName;
-
-}
+};

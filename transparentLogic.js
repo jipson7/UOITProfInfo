@@ -12,7 +12,12 @@ function extendList() {
 
 		if (PROF_SUNSHINE.hasOwnProperty(key)) {
 
-			PROF_MASTERLIST.push(key);
+			if (PROF_MASTERLIST.indexOf(key) != -1) {
+
+				PROF_MASTERLIST.push(key);
+
+			}
+
 		
 		}
 
@@ -131,11 +136,11 @@ function createToolTips() {
 		
 				if (checkResults[0] != "noResults") {
 
-					$(".tooltipIcon" + property).attr("title", designData(currentTitle));
+					$(".tooltipIcon" + property).attr("title", designData(currentTitle, property));
 
 				}else {
 
-					$(".tooltipIcon" + property).attr("title", designNoData(currentTitle));
+					$(".tooltipIcon" + property).attr("title", designNoData(currentTitle, property));
 
 				}
 				$(".tooltipIcon" + property).tooltip({
@@ -178,12 +183,15 @@ function createToolTips() {
 			});
 
 		}
+
+
+
 	}
 
 
 }
 
-function designNoData(data) {
+function designNoData(data, id) {
 
 	var addNewPersonUrl = "http://www.ratemyprofessors.com/AddTeacher.jsp";
 
@@ -206,12 +214,14 @@ function designNoData(data) {
 
 	}
 
+	buildReturn += checkSunshineData(id);
+
 	return buildReturn;
 
 
 }
 
-function designData(data) {
+function designData(data, id) {
 
 	var dataArray = data.split(" ");
 
@@ -241,6 +251,26 @@ function designData(data) {
 
 	buildReturn += "Rate them <a href='" + dataArray[7] + "' target='_blank'>here</a>";
 
+	buildReturn += checkSunshineData(id);
+
 	return buildReturn;
+
+}
+
+function checkSunshineData(id) {
+
+	console.log(id);
+
+	if (PROF_MASTERLIST[id] in PROF_SUNSHINE) {
+
+		console.log("RICCHCHCH");
+
+		return ("Salary: " + PROF_SUNSHINE[PROF_MASTERLIST[id]]);
+
+	} else {
+
+		return "";
+
+	}
 
 }

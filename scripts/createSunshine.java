@@ -37,11 +37,11 @@ class createSunshine {
 
 			if (i != names.size() - 1) {
 
-				writer.println("'" + names.get(i) + "': '" + salaries.get(i) + "',");
+				writer.println("'" + (names.get(i)).toLowerCase() + "': '" + salaries.get(i) + "',");
 
 			} else {
 
-				writer.println("'" + names.get(i) + "': '" + salaries.get(i) + "'");
+				writer.println("'" + (names.get(i)).toLowerCase() + "': '" + salaries.get(i) + "'");
 
 			}
 		}

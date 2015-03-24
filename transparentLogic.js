@@ -6,6 +6,22 @@ var GLOBAL_RUN = false;
 
 var BUTTONS = new Object();
 
+function extendList() {
+
+	for (var key in PROF_SUNSHINE) {
+
+		if (PROF_SUNSHINE.hasOwnProperty(key)) {
+
+			PROF_MASTERLIST.push(key);
+		
+		}
+
+	}	
+
+}
+
+extendList();
+
 $(document).ready(function() {
 
 	if (! GLOBAL_RUN) {
@@ -20,61 +36,6 @@ $(document).ready(function() {
 
 	
 })
-
-/*
-function injectButtons(currentPath){
-
-	var nameTags;
-
-	var buttons = new Object();
-
-	for(var i = 0; i < PROF_MASTERLIST.length; i++){
-
-		var currentProfName = PROF_MASTERLIST[i];
-
-		nameTags = getMatchingTags(currentProfName);
-
-		if ((nameTags != null)&&(nameTags.length != 0)) {
-
-			nameTags.append("<img class='tooltipIcon" + i + " globalTooltip' src='" + IMAGE_URL +  "'/>");
-
-			buttons[i] = "";
-
-			if ((currentProfName.split(" ")).length > 2) {
-
-				currentProfName = sandwichPaula(currentProfName);
-
-			}
-
-			var requestUrl = API_URL + "?profname=" + encodeURIComponent(currentProfName) + "&profid=" + i;
-
-			$.get(requestUrl, function(data){
-
-				var returnID = data.substr(0,data.indexOf(' '));
-
-				var returnData = data.substr(data.indexOf(' ')+1);
-
-				buttons[returnID] = returnData;
-				
-			});
-
-
-		}
-
-	 }
-
-	console.log("done adding buttons");
-
-	$( document ).ajaxStop(function() {
-
-		console.log("ajax requests finished");	
-	
-		createToolTips(buttons);
-
-	});
-
-}
-*/
 
 function injectButtons() {
 
@@ -126,7 +87,7 @@ function getProfData(id) {
 
 		var requestUrl = API_URL + "?profname=" + encodeURIComponent("paula dicato") + "&profid=" + id;
 
-		console.log("Damn I wish Paula was single");
+		console.log("Damn I wish Paula was single...");
 	
 	} else {
 

@@ -22,7 +22,7 @@
 		"https://ssbp.mycampus.ca/prod/bwskfcls.P_GetCrse",
 		"http://ssbp.mycampus.ca/prod/bwckschd.p_get_crse_unsec"],
 		"css": ["lib/jquery-ui.css"],
-		"js": ["lib/jquery.js", "lib/jquery-ui.js", "PROF_MASTERLIST.js", "transparentLogic.js"],
+		"js": ["lib/jquery.js", "lib/jquery-ui.js", "PROF_SUNSHINE.js", "PROF_MASTERLIST.js", "transparentLogic.js"],
 		"run-at": "document_start",
 		"all_frames": true,
 		"match_about_blank": true

@@ -290,11 +290,7 @@ function getHotnessImage(rank) {
 
 function checkSunshineData(id) {
 
-	console.log(id);
-
 	if (PROF_MASTERLIST[id].toLowerCase() in PROF_SUNSHINE) {
-
-		console.log("RICCHCHCH");
 
 		return ("Salary: " + PROF_SUNSHINE[PROF_MASTERLIST[id].toLowerCase()]);
 

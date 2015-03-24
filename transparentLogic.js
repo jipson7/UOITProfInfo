@@ -240,17 +240,17 @@ function designData(data, id) {
 
 	}
 
-	var buildReturn = "Overall Rating: " + dataArray[0] + "<br />";
+	var buildReturn = "Overall Rating: " + dataArray[0] + "/5<br />";
 	
 	buildReturn += "Average Grade Received: " + dataArray[1] + "<br />";
 
 	buildReturn += "Hotness: " + dataArray[2] + " " + getHotnessImage(dataArray[2])  + "<br />";
 
-	buildReturn += "Helpfulness: " + dataArray[3] + "<br />";
+	buildReturn += "Helpfulness: " + dataArray[3] + "/5<br />";
 
-	buildReturn += "Clarity: " + dataArray[4] + "<br />";
+	buildReturn += "Clarity: " + dataArray[4] + "/5<br />";
 
-	buildReturn += "Easiness: " + dataArray[5] + "<br />";
+	buildReturn += "Easiness: " + dataArray[5] + "/5<br />";
 
 	buildReturn += "Based on " + dataArray[6] + " Ratings. <br />";
 

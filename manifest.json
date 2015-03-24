@@ -29,6 +29,10 @@
 	}
 	],
 
-	"web_accessible_resources": ["lib/icon.png"]
+	"web_accessible_resources": ["lib/icon.png", 
+	"lib/cold-icon.png", 
+	"lib/warm-icon.png", 
+	"lib/steamy-icon.png",
+	"lib/scorching-icon.png"]
 	
 }

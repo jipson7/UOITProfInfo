@@ -2,6 +2,14 @@ var API_URL = "https://calebphillips.me/ratings.php";
 
 var IMAGE_URL = chrome.extension.getURL('lib/icon.png');
 
+var IMAGE_URL_COLD = chrome.extension.getURL('lib/cold-icon.png');
+
+var IMAGE_URL_WARM = chrome.extension.getURL('lib/warm-icon.png');
+
+var IMAGE_URL_STEAMY = chrome.extension.getURL('lib/steamy-icon.png');
+
+var IMAGE_URL_SCORCHING = chrome.extension.getURL('lib/scorching-icon.png');
+
 var GLOBAL_RUN = false;
 
 var BUTTONS = new Object();
@@ -236,7 +244,7 @@ function designData(data, id) {
 	
 	buildReturn += "Average Grade Received: " + dataArray[1] + "<br />";
 
-	buildReturn += "Hotness: " + dataArray[2] + "<br />";
+	buildReturn += "Hotness: " + dataArray[2] + " " + getHotnessImage(dataArray[2])  + "<br />";
 
 	buildReturn += "Helpfulness: " + dataArray[3] + "<br />";
 
@@ -251,6 +259,32 @@ function designData(data, id) {
 	buildReturn += checkSunshineData(id);
 
 	return buildReturn;
+
+}
+
+function getHotnessImage(rank) {
+
+	switch (rank) {
+
+		case "cold":
+			var hotURL = IMAGE_URL_COLD;
+			break;
+
+		case "warm":
+			var hotURL = IMAGE_URL_WARM;
+			break;
+
+		case "steamy":
+			var hotURL = IMAGE_URL_STEAMY;
+			break;
+
+		case "scorching":
+			var hotURL = IMAGE_URL_SCORCHING;
+			break;
+
+	}
+
+	return "<img src='" + hotURL  + "'/>";
 
 }
 

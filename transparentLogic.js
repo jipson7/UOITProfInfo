@@ -4,7 +4,7 @@ var IMAGE_URL = chrome.extension.getURL('lib/icon.png');
 
 var GLOBAL_RUN = false;
 
-var TEXT_NODES;
+var BUTTONS = new Object();
 
 $(document).ready(function() {
 
@@ -12,9 +12,6 @@ $(document).ready(function() {
 
 		GLOBAL_RUN = true;
 
-		TEXT_NODES = getTextNodes();
-
-		console.log("Nodes loaded");
 
 		injectButtons();
 
@@ -24,6 +21,7 @@ $(document).ready(function() {
 	
 })
 
+/*
 function injectButtons(currentPath){
 
 	var nameTags;
@@ -76,16 +74,96 @@ function injectButtons(currentPath){
 	});
 
 }
+*/
 
-function createToolTips(buttons) {
+function injectButtons() {
 
-	for (var property in buttons) {
+	var html = document.body.innerHTML;
 
-		if (buttons.hasOwnProperty(property)) {
+	var noQuote = '[^/]';
 
-			var currentTitle = buttons[property];
+	for (var i = 0; i < PROF_MASTERLIST.length; i++) {
 
-			var checkResults = (buttons[property]).split(" ");
+		var profSplit = PROF_MASTERLIST[i].split(" ");
+
+		if (profSplit.length === 2) {
+
+			var regex = new RegExp(noQuote + profSplit[0] + '\\s[A-Za-z]?(.\\s)?' + profSplit[1], 'gi');
+
+		} else {
+
+			var nameRebuild = profSplit[0];
+
+			for (var j = 1; j < profSplit.length; j++)
+				nameRebuild += "\\s" + profSplit[j]
+
+			var regex = new RegExp(nameRebuild, 'gi');
+
+		}
+
+		if (regex.test(html)) {
+
+			getProfData(i);
+
+		}
+
+		html = html.replace(regex, function (name) {
+
+	        name = name.trim();
+	        name = name + "<img class='tooltipIcon" + i + " globalTooltip' src='" + IMAGE_URL +  "'/>"
+	        return name;
+	    });
+
+	}
+
+	document.body.innerHTML = html;
+
+}
+
+function getProfData(id) {
+
+	if (PROF_MASTERLIST[id] === "Paula Di Cato") {
+
+		var requestUrl = API_URL + "?profname=" + encodeURIComponent("paula dicato") + "&profid=" + id;
+
+		console.log("Damn I wish Paula was single");
+	
+	} else {
+
+		var requestUrl = API_URL + "?profname=" + encodeURIComponent(PROF_MASTERLIST[id]) + "&profid=" + id;
+
+	}
+
+	BUTTONS[id] = "";
+
+	$.get(requestUrl, function(data){
+
+		var returnID = data.substr(0,data.indexOf(' '));
+
+		var returnData = data.substr(data.indexOf(' ')+1);
+
+		BUTTONS[returnID] = returnData;
+		
+	});
+
+
+	$( document ).ajaxStop(function() {
+	
+		createToolTips();
+
+	});
+
+}
+
+function createToolTips() {
+
+	for (var property in BUTTONS) {
+
+		if (BUTTONS.hasOwnProperty(property)) {
+
+			var currentTitle = BUTTONS[property];
+
+			var checkResults = (BUTTONS[property]).split(" ");
 
 
 			$(function() {
@@ -205,90 +283,3 @@ function designData(data) {
 	return buildReturn;
 
 }
-
-
-function getMatchingTags(profName) {
-
-	var regExpression = new RegExp(buildNameRegex(profName), "i");
-
-	var result =  TEXT_NODES.filter(function() {
-
-		return ((regExpression.test($(this).text())) && ($(this).children().length == 0));
-
-	});
-
-	if (result.length == 0) {
-
-		var result =  TEXT_NODES.filter(function() {
-
-			return ((regExpression.test($(this).text())) && ($(this).children().children().length == 0));
-
-		});
-
-	}
-
-	return result;
-
-
-}
-
-function buildNameRegex(name) {
-
-	var splitName = name.split(" ");
-
-	returnName = splitName[0] + "\\s?[A-Za-z]?(.\\s)?";
-
-	for (var i = 1; i < splitName.length; i++) {
-
-		if (i == splitName.length - 1) {
-
-			returnName += splitName[i];
-
-		} else {
-
-			returnName += splitName[i] + " ";
-
-		}
-
-	}
-
-	return returnName;
-
-}
-
-function sandwichPaula(currentName) {
-
-	var splitName = currentName.split(" ");
-
-	if (splitName[1] == "de") {
-
-		return currentName;
-
-	}
-
-	var rebuiltName = splitName[0] + " ";
-
-	for (var i = 1; i < splitName.length; i++) {
-
-		rebuiltName += splitName[i];
-
-	}
-
-	return rebuiltName;
-
-}
-
-//Select all child text nodes of an element
-function getTextNodes() {
-
-    var children =  $(document).find(":not(iframe)").addBack().contents().filter(function() {
-
-        return this.nodeType == 3;
-
-    });
-
-	return children.parent();
-
-};
-
-;

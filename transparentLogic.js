@@ -199,18 +199,15 @@ function designNoData(data, id) {
 
 	var buildReturn = "";
 
+	buildReturn += "This person has not been rated.<br />";
+
 	if (dataArray[1] === "notExist") {
 
-		buildReturn += "This person has not been rated yet. <br />";
-
-		buildReturn += "You can give them one <a href='" + addNewPersonUrl + "' target='_blank'>here</a>";
+		buildReturn += "You can rate them <a href='" + addNewPersonUrl + "' target='_blank'>here</a><br />";
 
 	} else if (dataArray[1] === "noData") {
 
-
-		buildReturn += "This person is not yet rated. <br />";
-
-		buildReturn += "You can give them one <a href='" + dataArray[2] + "' target='_blank'>here</a>";
+		buildReturn += "You can rate them <a href='" + dataArray[2] + "' target='_blank'>here</a><br />";
 
 	}
 
@@ -249,7 +246,7 @@ function designData(data, id) {
 
 	buildReturn += "Based on " + dataArray[6] + " Ratings. <br />";
 
-	buildReturn += "Rate them <a href='" + dataArray[7] + "' target='_blank'>here</a>";
+	buildReturn += "Add your rating <a href='" + dataArray[7] + "' target='_blank'>here</a><br />";
 
 	buildReturn += checkSunshineData(id);
 
@@ -261,11 +258,11 @@ function checkSunshineData(id) {
 
 	console.log(id);
 
-	if (PROF_MASTERLIST[id] in PROF_SUNSHINE) {
+	if (PROF_MASTERLIST[id].toLowerCase() in PROF_SUNSHINE) {
 
 		console.log("RICCHCHCH");
 
-		return ("Salary: " + PROF_SUNSHINE[PROF_MASTERLIST[id]]);
+		return ("Salary: " + PROF_SUNSHINE[PROF_MASTERLIST[id].toLowerCase()]);
 
 	} else {
 

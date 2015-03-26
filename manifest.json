@@ -1,13 +1,9 @@
 {
 	"manifest_version": 2,
 
-	"name": "transparentUOIT",
-	"description": "Injects information on UOIT professors into any UOIT domain, including 'ratemyprofessor' ratings, salary information from the sunshine list, and more.",
+	"name": "UOIT Professor Info",
+	"description": "Injects information on UOIT professors into any UOIT domain, including 'ratemyprofessor' ratings, salary information from the sunshine list, and more. Look for the magnifying glass beside a UOIT Professor's name.",
 	"version": "1.0",
-
-	"permissions": [
-    	"http://localhost/transparentUOIT/ratings.php"
-  	],
 
 	"content_scripts": [
 	{

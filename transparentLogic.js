@@ -1,6 +1,6 @@
 var API_URL = "https://calebphillips.me/ratings.php";
 
-var IMAGE_URL = chrome.extension.getURL('lib/icon.png');
+var IMAGE_URL = chrome.extension.getURL('lib/glass.png');
 
 var IMAGE_URL_COLD = chrome.extension.getURL('lib/cold-icon.png');
 
@@ -292,12 +292,21 @@ function checkSunshineData(id) {
 
 	if (PROF_MASTERLIST[id].toLowerCase() in PROF_SUNSHINE) {
 
-		return ("Salary: " + PROF_SUNSHINE[PROF_MASTERLIST[id].toLowerCase()]);
+		var profSalary = PROF_SUNSHINE[PROF_MASTERLIST[id].toLowerCase()];
+
+		return ("Salary: " + convertToCurrency(profSalary));
 
 	} else {
 
 		return "";
 
 	}
+
+}
+
+function convertToCurrency(salaryString) {
+
+	//this is temporary
+	return salaryString;
 
 }

@@ -29,10 +29,13 @@
 	}
 	],
 
-	"web_accessible_resources": ["lib/icon.png", 
+	"web_accessible_resources": ["lib/glass.png", 
 	"lib/cold-icon.png", 
 	"lib/warm-icon.png", 
 	"lib/steamy-icon.png",
-	"lib/scorching-icon.png"]
+	"lib/scorching-icon.png"],
+
+	"icons": {"48": "lib/icon48.png",
+			  "128": "lib/icon128.png"}
 	
 }

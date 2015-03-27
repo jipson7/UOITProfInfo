@@ -2,7 +2,8 @@
 	"manifest_version": 2,
 
 	"name": "UOIT Professor Info",
-	"description": "Injects information on UOIT professors into any UOIT domain, including 'ratemyprofessor' ratings, salary information from the sunshine list, and more. Look for the magnifying glass beside a UOIT Professor's name.",
+	"short_name": "UOITProfInfo",
+	"description": "Embeds 'Rate My Professor' ratings and sunshine list salary data on UOIT professors into any UOIT domain.",
 	"version": "1.0",
 
 	"content_scripts": [
@@ -31,7 +32,7 @@
 	"lib/steamy-icon.png",
 	"lib/scorching-icon.png"],
 
-	"icons": {"48": "lib/icon48.png",
-			  "128": "lib/icon128.png"}
+	"icons": {"48": "lib/icon_48.png",
+			  "128": "lib/icon_128.png"}
 	
 }

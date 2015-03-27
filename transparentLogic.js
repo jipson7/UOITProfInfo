@@ -62,7 +62,7 @@ function injectButtons() {
 
 		if (profSplit.length === 2) {
 
-			var regex = new RegExp(noQuote + profSplit[0] + '\\s[A-Za-z]?(.\\s)?' + profSplit[1], 'gi');
+			var regex = new RegExp(noQuote + profSplit[0] + '((\\s[A-Za-z]?(.\\s)?)|(\\s[A-Z\\)\\(]+\\s))' + profSplit[1], 'gi');
 
 		} else {
 
@@ -84,7 +84,7 @@ function injectButtons() {
 		html = html.replace(regex, function (name) {
 
 	        name = name.trim();
-	        name = name + "<img class='tooltipIcon" + i + " globalTooltip' src='" + IMAGE_URL +  "'/>"
+	        name = name + "<img class='tooltipIcon" + i + "' src='" + IMAGE_URL +  "'/>"
 	        return name;
 	    });
 
@@ -96,17 +96,8 @@ function injectButtons() {
 
 function getProfData(id) {
 
-	if (PROF_MASTERLIST[id] === "Paula Di Cato") {
 
-		var requestUrl = API_URL + "?profname=" + encodeURIComponent("paula dicato") + "&profid=" + id;
-
-		console.log("Damn I wish Paula was single...");
-	
-	} else {
-
-		var requestUrl = API_URL + "?profname=" + encodeURIComponent(PROF_MASTERLIST[id]) + "&profid=" + id;
-
-	}
+	var requestUrl = buildProfUrl(id);
 
 	BUTTONS[id] = "";
 
@@ -126,6 +117,31 @@ function getProfData(id) {
 		createToolTips();
 
 	});
+
+}
+
+function buildProfUrl(id) {
+
+	var requestUrl
+
+	if (PROF_MASTERLIST[id] === "Paula Di Cato") {
+
+		requestUrl = API_URL + "?profname=" + encodeURIComponent("paula dicato") + "&profid=" + id;
+
+		console.log("Damn I wish Paula was single...");
+
+	} else if (PROF_MASTERLIST[id] === "Sayyed Ali Hosseini") {
+
+		requestUrl = API_URL + "?profname=" + encodeURIComponent("sayyed hosseini") + "&profid=" + id;
+	
+	} else {
+
+		requestUrl = API_URL + "?profname=" + encodeURIComponent(PROF_MASTERLIST[id]) + "&profid=" + id;
+
+	}
+
+	return requestUrl;
+
 
 }
 
@@ -182,10 +198,10 @@ function createToolTips() {
 
 						});
 
-					}
+					},
 
+					tooltipClass: "customTooltip"
 
-				
 				});
 
 			});

@@ -256,22 +256,22 @@ function designData(data, id) {
 
 	}
 
-	var buildReturn = "Overall Rating: " + dataArray[0] + "/5<br />";
+	var buildReturn = "<span>Overall Rating:</span> " + dataArray[0] + "/5<br />";
 	
-	buildReturn += "Average Grade Received: " + dataArray[1] + "<br />";
+	buildReturn += "<span>Average Grade:</span> " + dataArray[1] + "<br />";
 
-	buildReturn += "Hotness: " + dataArray[2] + " " + getHotnessImage(dataArray[2])  + "<br />";
+	buildReturn += "<span>Hotness:</span> " + dataArray[2] + " " + getHotnessImage(dataArray[2])  + "<br />";
 
-	buildReturn += "Helpfulness: " + dataArray[3] + "/5<br />";
+	buildReturn += "<span>Helpfulness:</span> " + dataArray[3] + "/5<br />";
 
-	buildReturn += "Clarity: " + dataArray[4] + "/5<br />";
+	buildReturn += "<span>Clarity:</span> " + dataArray[4] + "/5<br />";
 
-	buildReturn += "Easiness: " + dataArray[5] + "/5<br />";
+	buildReturn += "<span>Easiness:</span> " + dataArray[5] + "/5<br />";
 
 	buildReturn += "Based on " + dataArray[6] + " Ratings. <br />";
 
-	buildReturn += "Add your rating <a href='" + dataArray[7] + "' target='_blank'>here</a><br />";
-
+	buildReturn += "Add your rating <a href='" + dataArray[7] + "' target='_blank'><span>here</span></a><br />";
+	
 	buildReturn += checkSunshineData(id);
 
 	return buildReturn;
@@ -310,7 +310,7 @@ function checkSunshineData(id) {
 
 		var profSalary = PROF_SUNSHINE[PROF_MASTERLIST[id].toLowerCase()];
 
-		return ("Salary: " + convertToCurrency(profSalary));
+		return ("<span>Salary:</span> " + convertToCurrency(profSalary) + "<br />");
 
 	} else {
 
@@ -322,7 +322,8 @@ function checkSunshineData(id) {
 
 function convertToCurrency(salaryString) {
 
-	//this is temporary
-	return salaryString;
+	var moneyString = parseFloat(salaryString).toFixed(2).toString();
 
+	return "$" + moneyString.substring(0,3) + "," + moneyString.substring(3);
+	
 }

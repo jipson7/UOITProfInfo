@@ -1,0 +1,175 @@
+AKBARI, HAMID, 109398.78, Assistant Professor, University of Ontario Institute of Technology, VOID
+ALVI, SHAHID, 149705.14, Professor, University of Ontario Institute of Technology, VOID
+AMMAR, NAWAL, 193244.06, Dean, Faculty Of Social Science and Humanities, University of Ontario Institute of Technology, VOID
+ARISS, RACHEL, 105143.88, Assistant Professor, University of Ontario Institute of Technology, VOID
+ARULIAH, DHAVIDE, 124723.26, Associate Professor, University of Ontario Institute of Technology, VOID
+BAGLAY, SASHA, 105138.42, Associate Professor, University of Ontario Institute of Technology, VOID
+BALE, REDDY, 144667.31, Professor, University of Ontario Institute of Technology, VOID
+BARARI, AHMAD, 106695.42, Assistant Professor, University of Ontario Institute of Technology, VOID
+BARBER, WENDY, 110601.82, Assistant Professor, University of Ontario Institute of Technology, VOID
+BARTFAY, EMMA, 123124.56, Associate Professor, University of Ontario Institute of Technology, VOID
+BARTFAY, WALLY, 146981.16, Associate Professor, University of Ontario Institute of Technology, VOID
+BECSKEI, LESLIE, 109267.52, Associate Registrar, Records, University of Ontario Institute of Technology, VOID
+BEREZNAI, GEORGE, 201657.3, Professor, University of Ontario Institute of Technology, VOID
+BIGNELL, PAUL R., 132326.52, Executive Director, Information Technology Services, University of Ontario Institute of Technology, VOID
+BOHUN, SEAN, 118347.78, Associate Professor, University of Ontario Institute of Technology, VOID
+BOLSHAN, YURI, 100205.76, Assistant Professor, University of Ontario Institute of Technology, VOID
+BONETTA, DARIO, 127267.92, Associate Professor, University of Ontario Institute of Technology, VOID
+BRADBURY, JEREMY, 113106.18, Associate Professor, University of Ontario Institute of Technology, VOID
+BRIGHT, KEN, 128580.54, Director, Campus Infrastructure and Sustainability, University of Ontario Institute of Technology, VOID
+BUONO, PIETRO-LUCIANO, 126145.02, Associate Professor, University of Ontario Institute of Technology, VOID
+CAMPBELL, BRIAN, 216379.2, Associate Provost and Dean of Graduate Studies, University of Ontario Institute of Technology, VOID
+CAO, LIQUN, 162815.94, Professor, University of Ontario Institute of Technology, VOID
+CESARONI, CARLA, 115561.92, Associate Professor, University of Ontario Institute of Technology, VOID
+CHANG, BIN, 133255.69, Associate Professor, University of Ontario Institute of Technology, VOID
+CHILDS, ELIZABETH, 102000.0, Assistant Professor, University of Ontario Institute of Technology, VOID
+CHKREBTII, ANATOLI, 151619.77, Professor, University of Ontario Institute of Technology, VOID
+COFFEY, SUE, 160546.1, Associate Professor, University of Ontario Institute of Technology, VOID
+COLLINS, CHRISTOPHER, 123672.96, Assistant Professor, University of Ontario Institute of Technology, VOID
+COTE, PIERRE, 181688.05, Associate Professor, University of Ontario Institute of Technology, VOID
+CRICHLOW, WESLEY, 121961.46, Associate Professor, University of Ontario Institute of Technology, VOID
+CUTLER, BRIAN LEE, 178049.28, Professor, University of Ontario Institute of Technology, VOID
+DE CASTELL, SUZANNE, 198260.02, Dean, Faculty of Education, University of Ontario Institute of Technology, VOID
+DESAULNIERS, JEAN-PAUL, 115218.96, Associate Professor, University of Ontario Institute of Technology, VOID
+DESJARDINS, FRANCOIS, 128092.14, Associate Professor, University of Ontario Institute of Technology, VOID
+DHAR, TIRTHA, 124770.0, Assistant Professor, University of Ontario Institute of Technology, VOID
+DIGIUSEPPE, MAURICE, 109022.02, Associate Professor, University of Ontario Institute of Technology, VOID
+DINCER, IBRAHIM, 154250.28, Professor, University of Ontario Institute of Technology, VOID
+DONG, MIN, 108592.2, Associate Professor, University of Ontario Institute of Technology, VOID
+DOWNING, STEVEN, 104896.4, Associate Professor, University of Ontario Institute of Technology, VOID
+DRAYSON, PAMELA, 177882.36, University Librarian, University of Ontario Institute of Technology, VOID
+EAMER, ALLYSON, 100951.44, Assistant Professor, University of Ontario Institute of Technology, VOID
+EASTON, BRAD, 125754.42, Associate Professor, University of Ontario Institute of Technology, VOID
+EKLUND, MIKAEL, 126367.14, Associate Professor, University of Ontario Institute of Technology, VOID
+EL-GINDY, MOUSTAFA, 152679.77, Associate Professor, University of Ontario Institute of Technology, VOID
+EL-KHATIB, KHALIL, 127943.92, Associate Professor, University of Ontario Institute of Technology, VOID
+ELLIOTT, CRAIG, 185000.05, Chief Financial Officer, University of Ontario Institute of Technology, VOID
+ESMAILZADEH, EBRAHIM, 148056.55, Professor, University of Ontario Institute of Technology, VOID
+FORRESTER, SEAN, 146247.31, Associate Professor, University of Ontario Institute of Technology, VOID
+FOY, CHERYL A., 225000.0, University Secretary and General Counsel, University of Ontario Institute of Technology, VOID
+FREEMAN, JENNIFER, 102242.28, Director, Research Services, University of Ontario Institute of Technology, VOID
+FRIEDLAN, JOHN, 190591.92, Associate Professor, University of Ontario Institute of Technology, VOID
+GABER, HOSSAM ELSAYED, 125914.26, Associate Professor, University of Ontario Institute of Technology, VOID
+GABRIEL, KAMIEL, 192325.73, Professor, University of Ontario Institute of Technology, VOID
+GAMBLE, BRENDA, 104922.12, Associate Professor, University of Ontario Institute of Technology, VOID
+GASPARI, FRANCO, 131606.05, Associate Professor, University of Ontario Institute of Technology, VOID
+GENOSKO, GARY A., 148651.44, Professor, University of Ontario Institute of Technology, VOID
+GEORGE, CLEMON, 101322.12, Assistant Professor, University of Ontario Institute of Technology, VOID
+GOODMAN, WILLIAM, 139271.34, Professor, University of Ontario Institute of Technology, VOID
+GRAMI, ALI, 151331.88, Associate Professor, University of Ontario Institute of Technology, VOID
+GRANT, JUDITH, 118751.0, Associate Professor, University of Ontario Institute of Technology, VOID
+GREEN, MARK, 165673.62, Professor, University of Ontario Institute of Technology, VOID
+GREEN-JOHNSON, JULIA, 136799.16, Associate Professor, University of Ontario Institute of Technology, VOID
+HAGEMAN, CECILIA, 106324.5, Assistant Professor, University of Ontario Institute of Technology, VOID
+HARKINS, LEIGH, 101252.28, Assistant Professor, University of Ontario Institute of Technology, VOID
+HARVEL, GLENN, 160209.78, Associate Professor, University of Ontario Institute of Technology, VOID
+HE, YUPING, 122498.1, Associate Professor, University of Ontario Institute of Technology, VOID
+HENDRICKS, SHEREE, 113435.65, Senior Manager, Finance and Business Systems, University of Ontario Institute of Technology, VOID
+HINCH, RONALD, 159847.44, Professor, University of Ontario Institute of Technology, VOID
+HOGUE, ANDREW, 110997.6, Assistant Professor, University of Ontario Institute of Technology, VOID
+HOLDWAY, DOUGLAS, 216315.16, Professor, University of Ontario Institute of Technology, VOID
+HOORNWEG, DANIEL, 140306.45, Associate Professor, University of Ontario Institute of Technology, VOID
+HUGHES, JANETTE, 126101.16, Associate Professor, University of Ontario Institute of Technology, VOID
+HUNG, PATRICK, 139965.3, Associate Professor, University of Ontario Institute of Technology, VOID
+IKEDA, BRIAN, 136719.95, Associate Professor, University of Ontario Institute of Technology, VOID
+JAIN, CHINMAY, 125049.24, Assistant Professor, University of Ontario Institute of Technology, VOID
+JIANG, YING, 102659.45, Associate Professor, University of Ontario Institute of Technology, VOID
+JONES, FERDINAND, 101976.48, Senior Lecturer, University of Ontario Institute of Technology, VOID
+JONES-TAGGART, HOLLY, 126418.68, Associate Professor, University of Ontario Institute of Technology, VOID
+KAPRALOS, BILL, 122078.52, Associate Professor, University of Ontario Institute of Technology, VOID
+KARRAY, SALMA, 128133.36, Associate Professor, University of Ontario Institute of Technology, VOID
+KAY, ROBIN, 134596.02, Professor, University of Ontario Institute of Technology, VOID
+KAYE, MATTHEW, 120197.58, Associate Professor, University of Ontario Institute of Technology, VOID
+KIRKWOOD, ANDREA, 100691.26, Associate Professor, University of Ontario Institute of Technology, VOID
+KISHAWY, HOSSAM, 157930.73, Professor, University of Ontario Institute of Technology, VOID
+KOMAR, JOHN, 159914.77, Director Engineering & Operations, University of Ontario Institute of Technology, VOID
+KOTLYAR, IGOR, 111951.7, Associate Professor, University of Ontario Institute of Technology, VOID
+KRASMAN, JOSEPH, 119122.12, Associate Professor, University of Ontario Institute of Technology, VOID
+LAPP, MURRAY, 186200.05, Vice President, Human Resources and Services, University of Ontario Institute of Technology, VOID
+LAURICELLA LOVEROCK, SHARON, 105005.88, Associate Professor, University of Ontario Institute of Technology, VOID
+LEACH, AMY, 102223.44, Associate Professor, University of Ontario Institute of Technology, VOID
+LEMONDE, MANON, 149885.4, Associate Professor, University of Ontario Institute of Technology, VOID
+LESAGE, ANN, 114689.7, Associate Professor, University of Ontario Institute of Technology, VOID
+LEWIS, BRENT JOSEPH, 203168.34, Dean, Faculty of Energy Systems and Nuclear Science, University of Ontario Institute of Technology, VOID
+LEWIS, GREGORY, 127750.86, Associate Professor, University of Ontario Institute of Technology, VOID
+LI, JIA, 102972.06, Assistant Professor, University of Ontario Institute of Technology, VOID
+LIN, XIAODONG, 116189.64, Associate Professor, University of Ontario Institute of Technology, VOID
+LINDSAY, GAIL, 122894.64, Associate Professor, University of Ontario Institute of Technology, VOID
+LISCANO, RAMIRO, 128956.5, Associate Professor, University of Ontario Institute of Technology, VOID
+LLOYD, MEGHANN, 104206.08, Assistant Professor, University of Ontario Institute of Technology, VOID
+LU, FLETCHER, 103122.12, Assistant Professor, University of Ontario Institute of Technology, VOID
+LU, LIXUAN, 116517.6, Associate Professor, University of Ontario Institute of Technology, VOID
+MACHRAFI, RACHID, 114804.9, Associate Professor, University of Ontario Institute of Technology, VOID
+MACISAAC, BRAD, 168438.6, Assist Vice President, Planning and Analysis, and Registrar, University of Ontario Institute of Technology, VOID
+MACMILLAN, JOHN, 127453.08, Director, Communications and Marketing, University of Ontario Institute of Technology, VOID
+MAHMOUD, QUSAY, 160512.55, Professor, University of Ontario Institute of Technology, VOID
+MAKREHCHI, MASOUD, 104382.6, Associate Professor, University of Ontario Institute of Technology, VOID
+MARSH, STEPHEN, 111382.6, Assistant Professor, University of Ontario Institute of Technology, VOID
+MCGARRY, DEBBIE, 159673.14, Director, Advancement Strategy and Operations, University of Ontario Institute of Technology, VOID
+MCGOVERN, SUSAN T., 234999.95, Vice President, External Relations and Advancement, University of Ontario Institute of Technology, VOID
+MCGREGOR, CAROLYN, 143479.02, Professor, University of Ontario Institute of Technology, VOID
+MCTIERNAN, TIMOTHY, 320000.03, President and Vice-Chancellor, University of Ontario Institute of Technology, VOID
+MILMAN, RUTH, 104126.64, Assistant Professor, University of Ontario Institute of Technology, VOID
+MOHANY, ATEF MOHAMED, 120626.98, Assistant Professor, University of Ontario Institute of Technology, VOID
+MORETZ, JEFF, 108771.96, Assistant Professor, University of Ontario Institute of Technology, VOID
+MUIRHEAD, BILL, 206206.08, Associate Provost, Academic, University of Ontario Institute of Technology, VOID
+MURPHY, BERNADETTE, 146176.86, Professor, University of Ontario Institute of Technology, VOID
+NACKE, LENNART, 102078.0, Assistant Professor, University of Ontario Institute of Technology, VOID
+NAUMKIN, FEDOR, 130463.64, Associate Professor, University of Ontario Institute of Technology, VOID
+NICHITA, ELEODOR, 136759.73, Associate Professor, University of Ontario Institute of Technology, VOID
+NOKLEBY, SCOTT, 124869.36, Associate Professor, University of Ontario Institute of Technology, VOID
+OMAN, NATALIE, 105143.88, Assistant Professor, University of Ontario Institute of Technology, VOID
+ONSIONG, PAMELA, 112930.09, Director of Financial Planning and Reporting, University of Ontario Institute of Technology, VOID
+OWEN, MICHAEL, 224454.95, Vice President, Research, Innovation and International, University of Ontario Institute of Technology, VOID
+PAZZI, RICHARD WERNER, 104382.6, Assistant Professor, University of Ontario Institute of Technology, VOID
+PEDERSEN, ISABEL, 132134.34, Associate Professor, University of Ontario Institute of Technology, VOID
+PERCIVAL, JENNIFER, 128135.22, Associate Professor, University of Ontario Institute of Technology, VOID
+PERRY, BARBARA, 167752.31, Professor, University of Ontario Institute of Technology, VOID
+PETRARCA, DIANA, 109151.44, Assistant Professor, University of Ontario Institute of Technology, VOID
+PETRIE, OLIVIA, 141647.1, Assistant Vice President, Student Life, University of Ontario Institute of Technology, VOID
+PINTO, LAURA, 109225.54, Assistant Professor, University of Ontario Institute of Technology, VOID
+PIORO, IGOR, 144949.5, Professor, University of Ontario Institute of Technology, VOID
+POP-ILIEV, REMON, 152670.9, Professor, University of Ontario Institute of Technology, VOID
+PU, KEN, 114712.68, Associate Professor, University of Ontario Institute of Technology, VOID
+QURESHI, FAISAL, 116355.66, Associate Professor, University of Ontario Institute of Technology, VOID
+RAHNAMAYAN, SHAHRYAR, 111848.28, Associate Professor, University of Ontario Institute of Technology, VOID
+REMPEL, MARJ A., 101742.75, Director, Teaching and Learning, University of Ontario Institute of Technology, VOID
+REN, JING, 110625.12, Assistant Professor, University of Ontario Institute of Technology, VOID
+RITCHIE, PAMELA, 200245.2, Dean, Faculty of Business and Information Technology, University of Ontario Institute of Technology, VOID
+RIZVI, GHAUS, 125214.9, Associate Professor, University of Ontario Institute of Technology, VOID
+ROBERTSON, LORAYNE, 130361.68, Associate Professor, University of Ontario Institute of Technology, VOID
+ROHRAUER, GREG, 130466.7, Assistant Professor, University of Ontario Institute of Technology, VOID
+ROSE, STEPHEN, 114013.56, Senior Lecturer, University of Ontario Institute of Technology, VOID
+ROSEN, MARC, 197108.1, Professor, University of Ontario Institute of Technology, VOID
+SANCHEZ, OTTO, 154216.02, Dean, Faculty of Health Sciences, University of Ontario Institute of Technology, VOID
+SARTIPI, KAMRAN, 112269.84, Associate Professor, University of Ontario Institute of Technology, VOID
+SAUCIER, DEBORAH, 258666.69, Provost and Vice President, Academic, University of Ontario Institute of Technology, VOID
+SCOTT, HANNAH, 113221.86, Professor, University of Ontario Institute of Technology, VOID
+SHAH-HEYDARI, SHAHRAM, 112244.92, Associate Professor, University of Ontario Institute of Technology, VOID
+SHAHBAZPANAHI, SHAHRAM, 123386.94, Associate Professor, University of Ontario Institute of Technology, VOID
+SHAHID, HIDAYAT, 105180.22, Manager, Technical Services, University of Ontario Institute of Technology, VOID
+SHI, WEI, 103726.5, Assistant Professor, University of Ontario Institute of Technology, VOID
+SHON, PHILLIP, 136698.44, Associate Professor, University of Ontario Institute of Technology, VOID
+SIDHU, TARLOCHAN, 251855.36, Dean, Faculty of Engineering and Applied Sciences, University of Ontario Institute of Technology, VOID
+SLANE, ANDREA, 124764.0, Associate Professor, University of Ontario Institute of Technology, VOID
+SMIMOU, KAMAL, 142209.12, Associate Professor, University of Ontario Institute of Technology, VOID
+SOOD, VIJAY, 153909.12, Associate Professor, University of Ontario Institute of Technology, VOID
+STANYON, WENDY, 133762.62, Associate Professor, University of Ontario Institute of Technology, VOID
+STRAP, JANICE, 122761.14, Associate Professor, University of Ontario Institute of Technology, VOID
+SURTI, CHIRAG, 110096.34, Assistant Professor, University of Ontario Institute of Technology, VOID
+TREVANI, LILIANA, 118316.88, Assistant Professor, University of Ontario Institute of Technology, VOID
+VAN NULAND, SHIRLEY, 125354.64, Associate Professor, University of Ontario Institute of Technology, VOID
+VAN OOSTVEEN, ROLAND, 129437.32, Associate Professor, University of Ontario Institute of Technology, VOID
+VAN VEEN, LENNAERT, 125038.32, Associate Professor, University of Ontario Institute of Technology, VOID
+VARGAS-MARTIN, MIGUEL, 135583.38, Associate Professor, University of Ontario Institute of Technology, VOID
+VOGEL, ELLEN, 179190.69, Associate Professor, University of Ontario Institute of Technology, VOID
+WAKER, ANTHONY, 164205.19, Professor, University of Ontario Institute of Technology, VOID
+WALLER, EDWARD, 164711.55, Professor, University of Ontario Institute of Technology, VOID
+WANG, YING, 117512.58, Associate Professor, University of Ontario Institute of Technology, VOID
+WAUGH, CLIVE, 143773.44, Executive Director, Advancement, University of Ontario Institute of Technology, VOID
+WEAVER, ROBERT, 145764.95, Professor, University of Ontario Institute of Technology, VOID
+WU, TERRY, 155695.02, Professor, University of Ontario Institute of Technology, VOID
+ZAIDI, ARSHIA, 113629.9, Associate Professor, University of Ontario Institute of Technology, VOID
+ZHANG, DAN, 145377.06, Professor, University of Ontario Institute of Technology, VOID
+ZHU, YING, 115933.56, Associate Professor, University of Ontario Institute of Technology, VOID
+ZULUETA, GIL, 105084.73, Manager, Research and Trust Accounting, University of Ontario Institute of Technology, VOID

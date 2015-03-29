@@ -4,7 +4,7 @@
 	"name": "UOIT Professor Info",
 	"short_name": "UOITProfInfo",
 	"description": "Embeds 'Rate My Professor' ratings and sunshine list salary data on UOIT professors into any UOIT domain.",
-	"version": "1.2",
+	"version": "1.2.1",
 
 	"content_scripts": [
 	{
@@ -18,7 +18,8 @@
 		"https://ssbp.mycampus.ca/prod/www_directory.directory_uoit*",
 		"https://ssbp.mycampus.ca/prod/bwskfshd.P_CrseSchdDetl",
 		"https://ssbp.mycampus.ca/prod/bwskfcls.P_GetCrse",
-		"http://ssbp.mycampus.ca/prod/bwckschd.p_get_crse_unsec"],
+		"http://ssbp.mycampus.ca/prod/bwckschd.p_get_crse_unsec",
+		"https://ssbp.mycampus.ca/prod/bwckschd.p_get_crse_unsec"],
 		"css": ["lib/jquery-ui.css", "customTips.css"],
 		"js": ["lib/jquery.js", "lib/jquery-ui.js", "PROF_SUNSHINE.js", "PROF_MASTERLIST.js", "transparentLogic.js"],
 		"run-at": "document_start",

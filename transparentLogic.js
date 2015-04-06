@@ -84,7 +84,7 @@ function injectButtons() {
 		html = html.replace(regex, function (name) {
 
 	        name = name.trim();
-	        name = name + "<img class='tooltipIcon" + i + "' src='" + IMAGE_URL +  "'/>"
+	        name = name + " <img class='tooltipIcon" + i + "' src='" + IMAGE_URL +  "'/>"
 	        return name;
 	    });
 

@@ -4,6 +4,7 @@ proflist.txt
 data/
 lib/images/
 graphicDesign/
+production/
 
 *.class
 

@@ -4,7 +4,7 @@
 	"name": "UOIT Professor Info",
 	"short_name": "UOITProfInfo",
 	"description": "Embeds 'Rate My Professor' ratings and sunshine list salary data on UOIT professors into any UOIT domain.",
-	"version": "1.2.2",
+	"version": "1.2.3",
 
 	"content_scripts": [
 	{
@@ -16,8 +16,8 @@
 		"http://www.healthsciences.uoit.ca/*", 
 		"http://www.socialscienceandhumanities.uoit.ca/*",
 		"http://www.uoit.ca/*",
-		"http://portal.mycampus.ca/*",
 		"https://portal.mycampus.ca/*",
+		"http://portal.mycampus.ca/*",
 		"https://ssbp.mycampus.ca/*",
 		"http://ssbp.mycampus.ca/*"],
 		"css": ["lib/jquery-ui.css", "customTips.css"],

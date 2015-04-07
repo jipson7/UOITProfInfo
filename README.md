@@ -23,3 +23,5 @@ ______________________________
 The root and lib folder contain information for the actual extension. Mainly javascript and some image files.
 
 __________________________________
+
+Licensed under GPL. See LICENSE.md for more information.

@@ -14,6 +14,9 @@ var GLOBAL_RUN = false;
 
 var BUTTONS = new Object();
 
+/**
+ * Add list items in the sunshine list to the prof masterlist
+ */
 function extendList() {
 
 	for (var key in PROF_SUNSHINE) {
@@ -35,15 +38,16 @@ function extendList() {
 
 extendList();
 
+/**
+ * Execute program and check to be sure that it only runs once
+ */
 $(document).ready(function() {
 
 	if (! GLOBAL_RUN) {
 
 		GLOBAL_RUN = true;
 
-
 		injectButtons();
-
 
 	}
 
@@ -52,22 +56,30 @@ $(document).ready(function() {
 
 function injectButtons() {
 
+	//create copy of the DOM
 	var html = document.body.innerHTML;
 
+	//var to check if name is part of a link or actual text
 	var noQuote = '[^/]';
 
+	//Loop through all names in the prof masterlist
 	for (var i = 0; i < PROF_MASTERLIST.length; i++) {
 
+		//split each name by first, last, and potentially middle.
 		var profSplit = PROF_MASTERLIST[i].split(" ");
 
+		//Check to see if they dont have middle name or middle intial.
 		if (profSplit.length === 2) {
 
+			//Regex, global, case insensitive
 			var regex = new RegExp(noQuote + profSplit[0] + '((\\s[A-Za-z]?(.\\s)?)|(\\s[A-Z\\)\\(]+\\s))' + profSplit[1], 'gi');
 
 		} else {
 
+			//add first name back to nameList
 			var nameRebuild = profSplit[0];
 
+			//Add every other name back, with a space in the middle.
 			for (var j = 1; j < profSplit.length; j++)
 				nameRebuild += "\\s" + profSplit[j]
 
@@ -75,12 +87,15 @@ function injectButtons() {
 
 		}
 
+		//Check to see if name regex exists in HTML
 		if (regex.test(html)) {
 
+			//Pull info from server if they exist
 			getProfData(i);
 
 		}
 
+		//If name exists, replace it with a name + tooltip in the new DOM
 		html = html.replace(regex, function (name) {
 
 	        name = name.trim();
@@ -90,28 +105,37 @@ function injectButtons() {
 
 	}
 
+	//replace the existing HTML with our editted one
 	document.body.innerHTML = html;
 
 }
 
+/**
+ * Get Data from Server for all existing names and create tooltips for them.
+ */
 function getProfData(id) {
 
-
+	//Build URL to send as request to API
 	var requestUrl = buildProfUrl(id);
 
+	//Initiate place in array, this will hold the data returned for the respective professor
 	BUTTONS[id] = "";
 
+	//Perform ajax request on found prof
 	$.get(requestUrl, function(data){
 
+		//add ID of prof who sent request
 		var returnID = data.substr(0,data.indexOf(' '));
 
+		//Add all data of prof who sent request
 		var returnData = data.substr(data.indexOf(' ')+1);
 
+		//populate array with persons and their returned data
 		BUTTONS[returnID] = returnData;
 		
 	});
 
-
+	//wait until all ajax requests complete and then create the tooltips necessary to display their data
 	$( document ).ajaxStop(function() {
 	
 		createToolTips();
@@ -120,22 +144,33 @@ function getProfData(id) {
 
 }
 
+/**
+ * Create URL to send to server based on the prof that we found
+ */
 function buildProfUrl(id) {
 
-	var requestUrl
+	//Instantiate variable that will be sent to the server, this is the RMP url that the server needs
+	var requestUrl;
 
+	/**
+	 * Paula, This is because you have a weird last name. Half of the site decides it's one word, the other
+	 * half decides that it is two. So I added an easter egg, because besides having a weird name you're also awesome.
+	 * Cheers. Thanks for the Stats training, it actually became useful believe it or not.
+	 */
 	if (PROF_MASTERLIST[id] === "Paula Di Cato") {
 
 		requestUrl = API_URL + "?profname=" + encodeURIComponent("paula dicato") + "&profid=" + id;
 
 		console.log("Damn I wish Paula was single...");
 
+	//You have a weird middle name thingy too but we wont make it weird.
 	} else if (PROF_MASTERLIST[id] === "Sayyed Ali Hosseini") {
 
 		requestUrl = API_URL + "?profname=" + encodeURIComponent("sayyed hosseini") + "&profid=" + id;
 	
 	} else {
 
+		//Everybody else
 		requestUrl = API_URL + "?profname=" + encodeURIComponent(PROF_MASTERLIST[id]) + "&profid=" + id;
 
 	}

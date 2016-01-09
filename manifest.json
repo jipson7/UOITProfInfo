@@ -21,7 +21,7 @@
 		"https://ssbp.mycampus.ca/*",
 		"http://ssbp.mycampus.ca/*"],
 		"css": ["lib/jquery-ui.css", "customTips.css"],
-		"js": ["lib/jquery.js", "lib/jquery-ui.js", "PROF_SUNSHINE.js", "PROF_MASTERLIST.js", "transparentLogic.js"],
+		"js": ["lib/jquery.js", "lib/jquery-ui.js", "PROF_SUNSHINE.js", "PROF_MASTERLIST.js", "logic.js"],
 		"run-at": "document_start",
 		"all_frames": true,
 		"match_about_blank": true

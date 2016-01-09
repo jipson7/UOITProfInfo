@@ -2,7 +2,7 @@
 
 function getChiliImg(image) {
    var url = chrome.extension.getURL('lib/' + image);
-   return "<img src=" + url + "'/>";
+   return "<img src='" + url + "'/>";
 }
 
 (function() {
@@ -15,40 +15,29 @@ function getChiliImg(image) {
     }   
 })();
 
-function createRegex(name) {
-    if (name.length ===2) {
-        return new RegExp('[^/]' + name[0] 
-                    + '((\\s[A-Za-z]?(.\\s)?)|(\\s[A-Z\\)\\(]+\\s))'
-                    + name[1], 'gi');
-    } else {
-        return new RegExp(name.join('\\s'), 'gi');
-    }
-}
-
 $(function() {
     var API_URL = "https://rmp-api-uoit.herokuapp.com/uoit/score/";
-    var html = document.body.innerHTML;
     for (var i = 0; i < PROF_MASTERLIST.length; i++) {
-        var name = (PROF_MASTERLIST[i]).split();
-        var regex = createRegex(name);
-        if (regex.test(html)){
-            var url = API_URL + name.join('%20');
+        var prof = PROF_MASTERLIST[i]
+        var elements = $(":contains('" + prof + "'):last");
+        if (elements.length){
+            var url = API_URL + encodeURIComponent(prof);
             $.ajax({
                 url: url,
-                profName: name,
-                profRegex: regex,
+                prof: prof,
+                elements: elements,
                 success: function(data) {
-                    var tag = makeTag(this.profName, data);
-                    html = html.replace(this.profRegex, tag);
+                    var tag = makeTag(this.prof, data);
+                    this.elements.append(tag);
                 },
                 fail: function(error) {
-                    console.log(data);
+                    console.log(error);
                 }
             });
         }
     }
+
     $(document).ajaxStop(function() {
-        document.body.innerHTML = html;
         initTips();
     });
 });
@@ -74,21 +63,20 @@ function initTips() {
 
 function makeTag(name, data) {
     var logoURL = chrome.extension.getURL('lib/glass.png');    
-    name = name.join(' ').trim();
     var body = makeToolTipData(data);
-    return name + " <img class='toolTipInfo' src='" + 
+    return " <img class='toolTipInfo' src='" + 
            logoURL +"' title='" + body + "'/>";
 }
 
 function makeToolTipData(d) {
-    return "<span>Overall Rating:</span> " + d['overall score'] + "/5<br />" +
+    return ("<span>Overall Rating:</span> " + d['overall score'] + "/5<br />" +
            "<span>Average Grade:</span> " + d['average grade'] + "<br />" + 
-           "<span>Hotness:</span> " + getChiliImg(d['hotness image']) + "<br />" +
+           //"<span>Hotness:</span> " + getChiliImg(d['hotness image']) + "<br />" +
            "<span>Helpfulness:</span> " + d['helpfulness'] + "/5<br />" +
            "<span>Clarity:</span> " + d['clarity'] + "/5<br />" +
-           "<span>Easiness:</span> " + d['easiness'] + "/5<br />" +
-           "Based on " + 'fix this' + " Ratings. <br />" +
-           "Add your rating <a href='" + 'fix this' + 
-           "' target='_blank'><span>here</span></a><br />" +
-           'som sunchine stuff here';
+           "<span>Easiness:</span> " + d['easiness'] + "/5<br />");
+           //"Based on " + 'fix this' + " Ratings. <br />" +
+           //"Add your rating <a href='" + 'www.google.ca' +
+           //"' target='_blank'><span>here</span></a><br />" +
+           //'som sunchine stuff here').replace(/"/g, "'");
 }

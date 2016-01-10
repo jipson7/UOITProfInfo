@@ -2,7 +2,7 @@
 
 function getChiliImg(image) {
    var url = chrome.extension.getURL('lib/' + image);
-   return "<img src='" + url + "'/>";
+   return escapeHtml("<img src='" + url + "'/>");
 }
 
 (function() {
@@ -71,7 +71,7 @@ function makeTag(name, data) {
 function makeToolTipData(d) {
     return ("<span>Overall Rating:</span> " + d['overall score'] + "/5<br />" +
            "<span>Average Grade:</span> " + d['average grade'] + "<br />" + 
-           //"<span>Hotness:</span> " + getChiliImg(d['hotness image']) + "<br />" +
+           "<span>Hotness:</span> " + getChiliImg(d['hotness image']) + "<br />" +
            "<span>Helpfulness:</span> " + d['helpfulness'] + "/5<br />" +
            "<span>Clarity:</span> " + d['clarity'] + "/5<br />" +
            "<span>Easiness:</span> " + d['easiness'] + "/5<br />");
@@ -80,3 +80,12 @@ function makeToolTipData(d) {
            //"' target='_blank'><span>here</span></a><br />" +
            //'som sunchine stuff here').replace(/"/g, "'");
 }
+
+function escapeHtml(unsafe) {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+ }

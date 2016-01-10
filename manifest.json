@@ -29,10 +29,10 @@
 	],
 
 	"web_accessible_resources": ["lib/glass.png", 
-	"lib/cold-icon.png", 
-	"lib/warm-icon.png", 
-	"lib/steamy-icon.png",
-	"lib/scorching-icon.png"],
+	"lib/cold-chili.png", 
+	"lib/warm-chili.png", 
+	"lib/steamy-chili.png",
+	"lib/scorching-chili.png"],
 
 	"icons": {"48": "lib/icon_48.png",
 			  "128": "lib/icon_128.png"}

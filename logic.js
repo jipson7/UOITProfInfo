@@ -69,16 +69,17 @@ function makeTag(name, data) {
 }
 
 function makeToolTipData(d) {
-    return ("<span>Overall Rating:</span> " + d['overall score'] + "/5<br />" +
-           "<span>Average Grade:</span> " + d['average grade'] + "<br />" + 
-           "<span>Hotness:</span> " + getChiliImg(d['hotness image']) + "<br />" +
+    return "<span>Overall Rating:</span> " + d['overall_score'] + "/5<br />" +
+           "<span>Average Grade:</span> " + d['average_grade'] + "<br />" + 
+           "<span>Hotness:</span> " + getChiliImg(d['hotness_image']) + "<br />" +
            "<span>Helpfulness:</span> " + d['helpfulness'] + "/5<br />" +
            "<span>Clarity:</span> " + d['clarity'] + "/5<br />" +
-           "<span>Easiness:</span> " + d['easiness'] + "/5<br />");
-           //"Based on " + 'fix this' + " Ratings. <br />" +
-           //"Add your rating <a href='" + 'www.google.ca' +
-           //"' target='_blank'><span>here</span></a><br />" +
-           //'som sunchine stuff here').replace(/"/g, "'");
+           "<span>Easiness:</span> " + d['easiness'] + "/5<br />" +
+           "Based on <span>" + d['num_ratings'] + "</span>. <br />" +
+           "Add your rating " +
+           escapeHtml("<a href='" + d['profile_url'] +
+                      "' target='_blank'><span>here</span></a><br />")
+           //'som sunchine stuff here');
 }
 
 function escapeHtml(unsafe) {

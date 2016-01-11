@@ -1,10 +1,10 @@
-.customTooltip a {
+.ui-tooltip-content a {
 
 	color: Blue !important;	
 				
 }
 
-.customTooltip span {
+.ui-tooltip-content span {
 
 	font-weight: bold !important;
 

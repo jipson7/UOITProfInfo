@@ -78,8 +78,8 @@ function makeToolTipData(d) {
            "Based on <span>" + d['num_ratings'] + "</span>. <br />" +
            "Add your rating " +
            escapeHtml("<a href='" + d['profile_url'] +
-                      "' target='_blank'><span>here</span></a><br />")
-           //'som sunchine stuff here');
+                      "' target='_blank'><span>here</span></a><br />") +
+           "<span>Salary:</span> " + d['salary'];
 }
 
 function escapeHtml(unsafe) {

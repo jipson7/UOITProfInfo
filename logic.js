@@ -1,27 +1,24 @@
 
+var API_URL = "https://rmp-api-uoit.herokuapp.com/uoit/";
+var logoURL = chrome.extension.getURL('lib/glass.png');    
+var prof_list = null;
 
-function getChiliImg(image) {
-   var url = chrome.extension.getURL('lib/' + image);
-   return escapeHtml("<img src='" + url + "'/>");
-}
-
-(function() {
-    for (var key in PROF_SUNSHINE) {
-        if (PROF_SUNSHINE.hasOwnProperty(key)) {
-            if (PROF_MASTERLIST.indexOf(key) != -1) {
-                PROF_MASTERLIST.push(key);
-            }
-        }
-    }   
+(function getProfs() {
+    var url = API_URL + 'profs' ;
+    $.get(url, function(data) {
+        prof_list = data.profs; 
+        $(function() { init(); });
+    }).fail(function() {
+        getProfs();
+    });
 })();
 
-$(function() {
-    var API_URL = "https://rmp-api-uoit.herokuapp.com/uoit/score/";
-    for (var i = 0; i < PROF_MASTERLIST.length; i++) {
-        var prof = PROF_MASTERLIST[i]
+function init() {
+    for (var i = 0; i < prof_list.length; i++) {
+        var prof = prof_list[i]
         var elements = $(":contains('" + prof + "'):last");
         if (elements.length){
-            var url = API_URL + encodeURIComponent(prof);
+            var url = API_URL + 'score/' + encodeURIComponent(prof);
             $.ajax({
                 url: url,
                 prof: prof,
@@ -30,8 +27,10 @@ $(function() {
                     var tag = makeTag(this.prof, data);
                     this.elements.append(tag);
                 },
-                fail: function(error) {
-                    console.log(error);
+                error: function(error) {
+                    var data = JSON.parse(error.responseText);
+                    var tag = makeErrorTag(this.prof, data);
+                    this.elements.append(tag);
                 }
             });
         }
@@ -40,7 +39,7 @@ $(function() {
     $(document).ajaxStop(function() {
         initTips();
     });
-});
+}
 
 function initTips() {
     $('.toolTipInfo').tooltip({
@@ -61,8 +60,17 @@ function initTips() {
     });
 }
 
+function makeErrorTag(name, data) {
+    var body = data.message + "<br /> Add your rating " +
+               escapeHtml("<a href='" + data.url + 
+                          "' target='_blank'" + 
+                          "><span>here</span></a>") +
+               "<br /> <span>Salary:</span> " + data.salary;
+    return " <img class='toolTipInfo' src='" + 
+           logoURL +"' title='" + body + "'/>";
+}
+
 function makeTag(name, data) {
-    var logoURL = chrome.extension.getURL('lib/glass.png');    
     var body = makeToolTipData(data);
     return " <img class='toolTipInfo' src='" + 
            logoURL +"' title='" + body + "'/>";
@@ -80,6 +88,11 @@ function makeToolTipData(d) {
            escapeHtml("<a href='" + d['profile_url'] +
                       "' target='_blank'><span>here</span></a><br />") +
            "<span>Salary:</span> " + d['salary'];
+}
+
+function getChiliImg(image) {
+   var url = chrome.extension.getURL('lib/' + image);
+   return escapeHtml("<img src='" + url + "'/>");
 }
 
 function escapeHtml(unsafe) {

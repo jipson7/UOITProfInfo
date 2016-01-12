@@ -4,12 +4,13 @@
 	"name": "UOIT Professor Info",
 	"short_name": "UOITProfInfo",
 	"description": "Embeds 'Rate My Professor' ratings and sunshine list salary data on UOIT professors into any UOIT domain.",
-	"version": "1.2.4",
+	"version": "2.0.1",
 
 	"content_scripts": [
 	{
 		"matches": ["http://www.science.uoit.ca/*", 
 		"http://www.businessandit.uoit.ca/*", 
+		"https://uoit.blackboard.com/*", 
 		"http://education.uoit.ca/*", 
 		"http://nuclear.uoit.ca/*", 
 		"http://www.engineering.uoit.ca/*", 
@@ -21,7 +22,7 @@
 		"https://ssbp.mycampus.ca/*",
 		"http://ssbp.mycampus.ca/*"],
 		"css": ["lib/jquery-ui.css", "customTips.css"],
-		"js": ["lib/jquery.js", "lib/jquery-ui.js", "PROF_SUNSHINE.js", "PROF_MASTERLIST.js", "logic.js"],
+		"js": ["lib/jquery.js", "lib/jquery-ui.js", "logic.js"],
 		"run-at": "document_start",
 		"all_frames": true,
 		"match_about_blank": true

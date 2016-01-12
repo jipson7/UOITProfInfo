@@ -31,18 +31,17 @@ function init() {
                     var data = JSON.parse(error.responseText);
                     var tag = makeErrorTag(this.prof, data);
                     this.elements.append(tag);
+                },
+                complete: function() {
+                    initTips(this.elements);
                 }
             });
         }
     }
-
-    $(document).ajaxStop(function() {
-        initTips();
-    });
 }
 
-function initTips() {
-    $('.toolTipInfo').tooltip({
+function initTips(elements) {
+    elements.tooltip({
         content: function() {
             return this.getAttribute('title');
         },
@@ -66,14 +65,12 @@ function makeErrorTag(name, data) {
                           "' target='_blank'" + 
                           "><span>here</span></a>") +
                "<br /> <span>Salary:</span> " + data.salary;
-    return " <img class='toolTipInfo' src='" + 
-           logoURL +"' title='" + body + "'/>";
+    return " <img src='" + logoURL +"' title='" + body + "'/>";
 }
 
 function makeTag(name, data) {
     var body = makeToolTipData(data);
-    return " <img class='toolTipInfo' src='" + 
-           logoURL +"' title='" + body + "'/>";
+    return " <img src='" + logoURL +"' title='" + body + "'/>";
 }
 
 function makeToolTipData(d) {

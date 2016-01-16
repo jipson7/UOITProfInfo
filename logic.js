@@ -1,5 +1,5 @@
 
-var API_URL = "https://rmp-api-uoit.herokuapp.com/uoit/";
+var API_URL = "https://rmp-api-uoit-dev.herokuapp.com/uoit/";
 var logoURL = chrome.extension.getURL('lib/glass.png');    
 var prof_list = null;
 

@@ -4,7 +4,7 @@
 	"name": "UOIT Professor Info",
 	"short_name": "UOITProfInfo",
 	"description": "Embeds 'Rate My Professor' ratings and sunshine list salary data on UOIT professors into any UOIT domain.",
-	"version": "2.0.1",
+	"version": "2.0.2",
 
 	"content_scripts": [
 	{

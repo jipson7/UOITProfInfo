@@ -16,7 +16,7 @@ var prof_list = null;
 function init() {
     for (var i = 0; i < prof_list.length; i++) {
         var prof = prof_list[i]
-        var elements = $(":contains('" + prof + "'):last");
+        var elements = getNodesThatContain(prof);
         if (elements.length){
             var url = API_URL + 'score/' + encodeURIComponent(prof);
             $.ajax({
@@ -25,15 +25,15 @@ function init() {
                 elements: elements,
                 success: function(data) {
                     var tag = makeTag(this.prof, data);
-                    this.elements.append(tag);
+                    this.elements.after(tag);
                 },
                 error: function(error) {
                     var data = JSON.parse(error.responseText);
                     var tag = makeErrorTag(this.prof, data);
-                    this.elements.append(tag);
+                    this.elements.after(tag);
                 },
                 complete: function() {
-                    initTips(this.elements);
+                    initTips(this.elements.next());
                 }
             });
         }
@@ -100,3 +100,18 @@ function escapeHtml(unsafe) {
          .replace(/"/g, "&quot;")
          .replace(/'/g, "&#039;");
  }
+
+function getNodesThatContain(text) {
+    var textNodes = $(document).find(":not(iframe, script)")
+        .contents().filter(function(index) {
+            if (this.nodeType != 3)
+                return false
+            var t = text.split(/[\s]+/);
+            for (var i = 0; i < t.length; i++) {
+                if (this.textContent.indexOf(t[i]) < 0)
+                    return false
+            }
+            return true
+        });
+    return textNodes;
+};
